@@ -1,0 +1,39 @@
+#
+# Basic Crowdin CLI configuration
+# See https://crowdin.github.io/crowdin-cli/configuration for more information
+# See https://support.crowdin.com/developer/configuration-file/ for all available options
+#
+
+#
+# Your Crowdin credentials
+#
+"project_id": "788428"
+"api_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ3UUVxdmhVM3ZMT2EyWGljbVV5VCIsImp0aSI6IjRkZWEzNzIxN2ZjN2VlMGZmMWMxYjM3YzMwMWNkY2Q0NzVmMDdmNDI1OGU2Y2Y4NDNkMWQ1N2RmODg4N2YwMjdhMmE4Y2YxY2JkOGY2YzE2IiwiaWF0IjoxNzQ2Nzg4OTk2LjY0OTQ1OCwibmJmIjoxNzQ2Nzg4OTk2LjY0OTQ2MSwiZXhwIjoxNzc4MzI0OTk2LjU4ODIxNiwic3ViIjoiMTcwOTQ1MDIiLCJzY29wZXMiOlsicHJvamVjdCJdLCJkb21haW4iOm51bGwsImFzc29jaWF0aW9ucyI6WyIqIl0sImxvZ2luX21ldGhvZCI6bnVsbCwic2Vzc2lvbiI6MH0.R1bGVR96nIlJeMWvXhuEgQhFmEQsd7-qL2ejL-9LG5u3Iuu5CHDYHvant51e1B0VlKmgfgwNOUkCnRvRiPQhS-BeHrTBWwtV4erIDTNO68etZV_VzxBait-Zw8Nz49-9ufP1WHb9ucAbCOIDWKcbHL452CC49cZ5mqI6rvr2C22v4gXMiYGNrmq9BKiDZfzbqk5h1fzjgjAGw2bGPBFpuYLMrYFhxMKXppfvTr3ldeeoDTu44RxQjBRuSO3sTpmkH-I5PdeqWxUFvP593j_blDd-27Is1p5aB8Mce9mDPp3cNEl8ggEcHJL2x038sV55uv4zJ0CWLtBIt7bTt32fAFSpyNpKll6CMLRm53LPXqP1JkECWAWzCysIrBeFtxqIVWlgMYSmIPspKizOSiN2fud5JILMmvrhjD5_mO_UpCBaReuv9O148SMXGIBAmYeBIzEeXL_3unNaQ1W_8udmW8ATRhBQUplTZfhMWmPXpqkIWn1Ck8MHq_xGPG16HVIJ87mi5-fE9O_3AVC7KwpJ5bEZSEaNkXeaGsgCc9D8BQwQlESLzF2OCk5ZcpkTc3kmA5OcKidakJMsvgWI8tGIorc4rdrkC53F083FFKMuKcLJGVbgb_pVhQQAXlM8n3hvG6Ox-_ZNgYKNT3qaAgM2t3H2fIXMpcmGpj3RDnq_EmE"
+"base_path": "."
+"base_url": "https://api.crowdin.com"
+
+#
+# Defines whether to preserve the original directory structure in the Crowdin project
+# Recommended to set to true
+#
+"preserve_hierarchy": true
+
+#
+# Files configuration.
+# See https://support.crowdin.com/developer/configuration-file/ for all available options
+#
+files: [
+  {
+    #
+    # Source files filter
+    # e.g. "/resources/en/*.json"
+    #
+    "source": "/src/locales/en/messages.po",
+
+    #
+    # Translation files filter
+    # e.g. "/resources/%two_letters_code%/%original_file_name%"
+    #
+    "translation": "/src/locales/%two_letters_code%/messages.po",
+  }
+]
