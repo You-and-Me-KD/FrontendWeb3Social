@@ -1,46 +1,30 @@
-import linguiConfig from "./lingui.config";
+import { routing } from "@/i18n/routing";
+import createMiddleware from "next-intl/middleware";
 
-import Negotiator from "negotiator";
 import { type NextRequest, NextResponse } from "next/server";
 
-const { locales } = linguiConfig;
+const intlMiddleware = createMiddleware(routing);
 
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+export default function middleware(request: NextRequest) {
   const token = request.cookies.get("token")?.value;
+  const { pathname } = request.nextUrl;
 
-  if (!token) {
-    return NextResponse.redirect(new URL("/login", request.url));
+  if (pathname.includes("/profile")) {
+    if (!token) {
+      const currentLocale = pathname.split("/")[1] || routing.defaultLocale;
+      return NextResponse.redirect(
+        new URL(`/${currentLocale}/login`, request.url)
+      );
+    }
   }
 
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  );
-
-  if (pathnameHasLocale) return;
-
-  // Redirect if there is no locale
-  const locale = getRequestLocale(request.headers);
-  request.nextUrl.pathname = `/${locale}${pathname}`;
-  // e.g. incoming request is /products
-  // The new URL is now /en/products
-  return NextResponse.redirect(request.nextUrl);
-}
-
-function getRequestLocale(requestHeaders: Headers): string {
-  const langHeader = requestHeaders.get("accept-language") || undefined;
-  const languages = new Negotiator({
-    headers: { "accept-language": langHeader },
-  }).languages(locales.slice());
-
-  const activeLocale = languages[0] || locales[0] || "en";
-
-  return activeLocale;
+  return intlMiddleware(request);
 }
 
 export const config = {
   matcher: [
     "/profile/:path*",
+    "/((?!api|trpc|_next|_vercel|.*\\..*).*)",
     /*
      * Match all request paths except:
      * - _next/static (static files)

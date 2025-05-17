@@ -108,7 +108,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         <label
           className={cn(
             "absolute top-1/2 -translate-y-1/2 left-4 rounded-xl text-input-placeholder-primary pointer-events-none transition-all duration-400 transform scale-100 origin-[0_0]",
-            "peer-focus-within:-top-0 peer-focus-within:text-xs peer-focus-within:text-white bg-background peer-focus-within:px-1"
+            "peer-focus:-top-0 peer-focus:text-xs peer-focus:text-white peer-focus:bg-main-1 peer-focus:px-1 peer-focus-within:font-semibold",
+            "peer-not-placeholder-shown:-top-0 peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-white peer-not-placeholder-shown:bg-main-1 peer-not-placeholder-shown:px-1 peer-not-placeholder-shown:font-semibold"
           )}
           htmlFor={props.id}
         >

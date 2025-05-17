@@ -1,0 +1,18 @@
+{
+  "title": "Account Login",
+  "form": {
+    "username": "Username or Email",
+    "password": "Password",
+    "remember": "Remember Me",
+    "forgot": "Forgot Password?",
+    "btn": "Login to your Account",
+    "login-social": "Login with your Social Account"
+  },
+  "information": {
+    "welcome": "WELCOME TO",
+    "name": "WEB3GERS",
+    "description": "The next generation social network & community! Connect with your friends and play with our quests, web3 and badges gamification system!",
+    "btn-login": "Login",
+    "btn-register": "Register"
+  }
+}

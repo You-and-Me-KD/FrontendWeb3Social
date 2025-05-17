@@ -1,0 +1,13 @@
+{
+  "title": "Tạo tài khoản của bạn!",
+  "form": {
+    "email": "Email",
+    "username": "Tên người dùng",
+    "password": "Mật khẩu",
+    "password-repeat": "Nhập lại mật khẩu",
+    "send-new": "Gửi cho tôi tin tức và cập nhật qua email",
+    "login-social": "Đăng nhập bằng tài khoản mạng xã hội của bạn",
+    "btn": "Đăng ký ngay!",
+    "des": "Bạn sẽ nhận được một email xác nhận trong hộp thư đến của mình với một liên kết để kích hoạt tài khoản của bạn. Nếu bạn gặp bất kỳ vấn đề nào, hãy liên hệ với chúng tôi!"
+  }
+}

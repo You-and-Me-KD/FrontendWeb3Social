@@ -1,24 +1,6 @@
-import type { NextConfig } from "next";
+import { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+const nextConfig: NextConfig = {};
 
-const nextConfig: NextConfig = {
-  experimental: {
-    swcPlugins: [["@lingui/swc-plugin", {}]],
-  },
-  turbopack: {
-    rules: {
-      "*.po": {
-        loaders: ["@lingui/loader"],
-        as: "*.js",
-      },
-    },
-  },
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.po$/,
-      use: "@lingui/loader",
-    });
-    return config;
-  },
-};
-
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
+export default withNextIntl(nextConfig);

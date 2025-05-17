@@ -1,0 +1,13 @@
+{
+  "title": "Create your Account!",
+  "form": {
+    "email": "Your Email",
+    "username": "Username",
+    "password": "Password",
+    "password-repeat": "Repeat Password",
+    "send-new": "Send me news and updates via email",
+    "login-social": "Login with your Social Account",
+    "btn": "Register Now!",
+    "des": "You'll receive a confirmation email in your inbox with a link to activate your account. If you have any problems, contact us!"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Đăng Nhập Tài Khoản",
+  "form": {
+    "username": "Tên người dùng hoặc Email",
+    "password": "Mật khẩu",
+    "remember": "Ghi nhớ tôi",
+    "forgot": "Quên mật khẩu?",
+    "btn": "Đăng nhập vào tài khoản",
+    "login-social": "Đăng nhập bằng tài khoản mạng xã hội"
+  },
+  "information": {
+    "welcome": "CHÀO MỪNG ĐẾN VỚI",
+    "name": "WEB3GERS",
+    "description": "Mạng xã hội & cộng đồng thế hệ tiếp theo! Kết nối với bạn bè và tham gia nhiệm vụ, Web3 và hệ thống gamification huy hiệu của chúng tôi!",
+    "btn-login": "Đăng nhập",
+    "btn-register": "Đăng ký"
+  }
+}

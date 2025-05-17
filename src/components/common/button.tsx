@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import { Loader2 } from "lucide-react";
 import { cn } from "@/libs/utils";
+import { RevealHover } from "./reveal-hover";
 
 type Variant = NonNullable<ButtonProps["variant"]>;
 type Size = NonNullable<ButtonProps["size"]>;
@@ -84,21 +85,23 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         aria-disabled={disabled || loading}
         {...props}
       >
-        {loading ? (
-          <Loader2 className="animate-spin w-4 h-4 mr-2" aria-hidden="true" />
-        ) : (
-          prefix && (
-            <span className="mr-2" aria-hidden="true">
-              {prefix}
+        <RevealHover>
+          {loading ? (
+            <Loader2 className="animate-spin w-4 h-4 mr-2" aria-hidden="true" />
+          ) : (
+            prefix && (
+              <span className="mr-2" aria-hidden="true">
+                {prefix}
+              </span>
+            )
+          )}
+          <span>{children}</span>
+          {suffix && !loading && (
+            <span className="ml-2" aria-hidden="true">
+              {suffix}
             </span>
-          )
-        )}
-        <span>{children}</span>
-        {suffix && !loading && (
-          <span className="ml-2" aria-hidden="true">
-            {suffix}
-          </span>
-        )}
+          )}
+        </RevealHover>
       </button>
     );
   }
