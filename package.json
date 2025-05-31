@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack --port 8080",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "eslint ./src --ext .ts,.tsx --fix"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",

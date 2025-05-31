@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@/libs/utils";
-import { FC, useState } from "react";
 import { motion } from "framer-motion";
+import { FC } from "react";
 
 interface Props {
   active: number | string;

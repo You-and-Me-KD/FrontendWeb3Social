@@ -1,1 +1,0 @@
-/*eslint-disable*/module.exports={messages:JSON.parse("{\"Web3s Social\":[\"Web3s Social\"],\"Social network with web3 features\":[\"Social network with web3 features\"],\"WfCysZ\":[\"hello\"]}")};

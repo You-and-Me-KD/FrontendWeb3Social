@@ -8,7 +8,12 @@ export default async function Home() {
         Login to your Account
       </Button>
       <Button className="w-[356px]">Login to your Account</Button>
-      <Input className="w-[356px]" suffix="SUF" placeholder="" label="I like this"/>
+      <Input
+        className="w-[356px]"
+        suffix="SUF"
+        placeholder=""
+        label="I like this"
+      />
     </div>
   );
 }

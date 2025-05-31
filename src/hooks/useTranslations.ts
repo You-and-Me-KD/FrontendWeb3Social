@@ -8,7 +8,6 @@ const useTranslations = (namespaces: string[] | string = "") => {
     return { t };
   }
 
-  // Trường hợp: nhiều namespace
   const namespaceMap = namespaces.reduce((acc, ns) => {
     acc[ns] = useTranslationsNextIntl(ns);
     return acc;

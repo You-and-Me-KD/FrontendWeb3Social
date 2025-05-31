@@ -8,21 +8,18 @@ import ReactQueryProvider from "@/libs/react-query/Provider";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import config from "../../../lingui.config";
 
 const fontSans = Rajdhani({
   variable: "--font-rajdhani-sans",
   weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
 });
 
 const fontSans2 = Titillium_Web({
   variable: "--font-titillium-web-sans",
   weight: ["200", "300", "400", "600", "700", "900"],
+  subsets: ["latin"],
 });
-
-export async function generateStaticParams() {
-  return config.locales.map((lang) => ({ lang }));
-}
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

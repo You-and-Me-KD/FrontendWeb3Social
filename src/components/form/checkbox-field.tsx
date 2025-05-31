@@ -19,7 +19,6 @@ export const CheckboxFields = forwardRef<HTMLInputElement, CheckboxFieldsProps>(
       disabled = false,
       rounded = "sm",
       className,
-      errorClassName,
       ...props
     },
     ref

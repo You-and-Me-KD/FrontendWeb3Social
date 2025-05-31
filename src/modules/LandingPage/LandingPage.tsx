@@ -1,5 +1,5 @@
 "use client";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { Login, Information, Decoration, AnimatedPanel } from "./components";
 import Register from "./components/Register";
 import { useLandingStore } from "@/stores";

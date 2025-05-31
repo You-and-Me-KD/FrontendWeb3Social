@@ -4,7 +4,6 @@ import { LogoIcon } from "@/assets";
 import useTranslations from "@/hooks/useTranslations";
 import { FC } from "react";
 import Tabs from "./Tabs";
-import { label } from "framer-motion/client";
 import { useLandingStore } from "@/stores";
 import { setLandingStore } from "@/stores/useLandingStore";
 

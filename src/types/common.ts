@@ -1,4 +1,4 @@
-export interface IAxiosResponse<T = any> {
+export interface IAxiosResponse<T = unknown> {
   meta: IMeta;
   data: T;
 }

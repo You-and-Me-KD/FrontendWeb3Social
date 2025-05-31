@@ -1,7 +1,6 @@
 import React, { forwardRef } from "react";
 import { Loader2 } from "lucide-react";
 import { cn } from "@/libs/utils";
-import { RevealHover } from "./reveal-hover";
 
 type Variant = NonNullable<ButtonProps["variant"]>;
 type Size = NonNullable<ButtonProps["size"]>;

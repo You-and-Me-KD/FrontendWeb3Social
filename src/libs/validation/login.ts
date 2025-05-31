@@ -1,6 +1,5 @@
-import { TranslationsType } from "@/hooks";
 import { z } from "zod";
-export const getLoginSchema = (t: any) => {
+export const getLoginSchema = (t: Function) => {
   return z.object({
     email: z
       .string({
@@ -8,10 +7,7 @@ export const getLoginSchema = (t: any) => {
           field: t("common.fields.email"),
         }),
       })
-      .min(
-        1,
-        t("common.validation.required", { field: t("common.fields.email") })
-      ),
+      .min(1, t("common.validation.required", { field: t("common.fields.email") })),
     password: z
       .string({
         required_error: t("common.validation.required", {
