@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { Rajdhani, Titillium_Web } from "next/font/google";
 import "./globals.css";
 
-import config from "../../../lingui.config";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import LayoutProvider from "@/libs/common/LayoutProvider";
+import ReactQueryProvider from "@/libs/react-query/Provider";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import config from "../../../lingui.config";
 
 const fontSans = Rajdhani({
   variable: "--font-rajdhani-sans",
@@ -45,9 +47,11 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <NextIntlClientProvider>
-        <body className={`${fontSans.variable} ${fontSans2} antialiased`}>
-          {children}
-        </body>
+        <ReactQueryProvider>
+          <body className={`${fontSans.variable} ${fontSans2} antialiased`}>
+            <LayoutProvider>{children}</LayoutProvider>
+          </body>
+        </ReactQueryProvider>
       </NextIntlClientProvider>
     </html>
   );

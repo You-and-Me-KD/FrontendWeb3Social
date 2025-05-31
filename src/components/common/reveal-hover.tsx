@@ -28,6 +28,7 @@ export const RevealHover: FCC<Props> = ({ duration = 0.25, children }) => {
           duration,
           ease: "easeInOut",
         }}
+        className="flex items-center justify-center gap-1"
       >
         {children}
       </motion.div>

@@ -1,7 +1,7 @@
 {
   "title": "Account Login",
   "form": {
-    "username": "Username or Email",
+    "username-or-email": "Username or Email",
     "password": "Password",
     "remember": "Remember Me",
     "forgot": "Forgot Password?",

@@ -19,6 +19,6 @@ export default getRequestConfig(async ({ requestLocale }) => {
   ]);
   return {
     locale: "en",
-    messages: { login, common,register },
+    messages: { login, common, register },
   };
 });

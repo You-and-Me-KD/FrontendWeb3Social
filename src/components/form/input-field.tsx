@@ -27,7 +27,6 @@ export const InputField: React.FC<InputFieldProps> = ({
         {...inputProps}
         {...register(name, rules)}
         label={label}
-        id={name}
         aria-invalid={errors[name] ? "true" : "false"}
       />
       {errors[name] && (

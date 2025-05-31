@@ -1,4 +1,5 @@
 "use client";
+import { useLoginMutation } from "@/apis/auths";
 import {
   FacebookIcon,
   GoogleIcon,
@@ -6,12 +7,15 @@ import {
   rocketImage,
   TwitterIcon,
 } from "@/assets";
-import { Button } from "@/components";
+import { Button, Toast } from "@/components";
 import { CheckboxFields } from "@/components/form/checkbox-field";
 import FormWrapper from "@/components/form/form-wrapper";
 import { InputField } from "@/components/form/input-field";
 import { FormBox } from "@/components/ui";
 import useTranslations from "@/hooks/useTranslations";
+import { getLoginSchema } from "@/libs";
+import { IAxiosResponse } from "@/types/common";
+import { getErrorMessage } from "@/utils/fn";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { FC } from "react";
@@ -20,29 +24,32 @@ import { z } from "zod";
 
 const Login: FC = () => {
   const { t } = useTranslations(["login", "common"]);
-  const schema = z.object({
-    username: z
-      .string({
-        required_error: t("common.validation.required", {
-          field: t("common.fields.username"),
-        }),
-      })
-      .min(1, t("common.validation.required", { field: t("common.fields.username") })),
-    password: z
-      .string({
-        required_error: t("common.validation.required", {
-          field: t("common.fields.password"),
-        }),
-      })
-      .min(
-        1,
-        t("common.validation.minlength", { field: t("common.fields.password"), min: 1 })
-      ),
-    remember: z.boolean().optional(),
-  });
+  const schema = getLoginSchema(t);
   const form = useForm({
     resolver: zodResolver(schema),
   });
+
+  const { mutateAsync } = useLoginMutation();
+
+  const onSubmit = async (data: z.infer<typeof schema>) => {
+    try {
+      await mutateAsync(data, {
+        onSuccess: () => {
+          Toast.success({
+            label: t("common.toast.success.login"),
+            description: t("common.success.LOGIN_SUCCESS"),
+          });
+        },
+        onError: async (error: IAxiosResponse) => {
+          const text = await getErrorMessage(error?.meta.message);
+          Toast.error({
+            label: t("common.toast.error.login"),
+            description: t(text),
+          });
+        },
+      });
+    } catch (error) {}
+  };
 
   return (
     <div className="w-[484px] max-w-full">
@@ -51,22 +58,21 @@ const Login: FC = () => {
           {t("login.title")}
         </h4>
         <FormWrapper
+          formId="login-form"
           form={form}
-          onSubmit={(e) => {
-            console.log(e);
-          }}
+          onSubmit={onSubmit}
           className="xl:mt-[4.75rem] flex flex-col gap-7 mt-10"
         >
           <InputField
             placeholder=" "
             autoComplete="off"
-            name="username"
-            label={t("login.form.username")}
+            name="email"
+            label={t("login.form.username-or-email")}
           />
 
           <InputField
             placeholder=" "
-            autoComplete="off"
+            autoComplete="new-password"
             name="password"
             label={t("login.form.password")}
             type="password"

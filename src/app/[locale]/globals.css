@@ -55,6 +55,9 @@
   --main-4: #3763d2;
   /* shadow */
   --shadow-1: 0 0 60px 0 rgba(0, 0, 0, 0.12);
+
+  /* loader */
+  --loader-bg-color: #1d2333;
 }
 
 @theme {
@@ -141,6 +144,7 @@
   --color-main-3: var(--main-3);
   --color-main-4: var(--main-4);
   --color-shadow-1: var(--shadow-1);
+  --color-loader-bg: var(--loader-bg-color);
 }
 
 @media (prefers-color-scheme: dark) {

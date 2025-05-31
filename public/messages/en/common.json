@@ -1,4 +1,8 @@
 {
+  "common": {
+    "title": "WEB3GERS",
+    "loading": "LOADING..."
+  },
   "validation": {
     "common": "This field is invalid",
     "required": "{field} is required",
@@ -6,9 +10,48 @@
     "maxlength": "{field} must be at most {max} characters"
   },
   "fields": {
-    "username": "Username or Email",
+    "username-or-email": "Username or Email",
+    "username": "Username",
     "password": "Password",
     "confirmPassword": "Confirm Password",
     "email": "Email"
+  },
+  "toast": {
+    "success": {
+      "login": "Login successfully!",
+      "register": "Registration successful!",
+      "verify-success": "Email verification successful!"
+    },
+    "error": {
+      "login": "Login failed!",
+      "register": "Registration failed!",
+      "verify-error": "Email verification failed!"
+    }
+  },
+  "success": {
+    "LOGIN_SUCCESS": "Login successful. Welcome to the sites!",
+    "REGISTER_SUCCESS": "Registration successful. Please check your email to verify your account.",
+    "PASSWORD_RESET_SUCCESS": "Password reset link has been sent to your email.",
+    "EMAIL_VERIFICATION_SUCCESS": "You can now log in."
+  },
+  "error": {
+    "NOT_FOUND": "Something went wrong.<br /> Please try login again later.",
+    "INVALID_CREDENTIALS": "Invalid credentials provided. Please check your username and password.",
+    "EMAIL_ALREADY_EXISTS": "The email address is already registered. Please use a different email.",
+    "USERNAME_ALREADY_EXISTS": "The username is already taken. Please choose a different username.",
+    "PASSWORD_MISMATCH": "Passwords do not match. Please try again.",
+    "USER_NOT_VERIFY": "Your account is not verified.<br /> Please check your email for the verification link.",
+    "MUST_BE_AN_EMAIL": "The input must be a valid email address.",
+    "USERNAME_MUST_BE_ALPHANUMERIC": "Username must be alphanumeric and can include underscores.",
+    "PASSWORD_MUST_BE_STRONG": "Password must be at least 8 characters long and include uppercase, lowercase, numbers, and special characters.",
+    "USERNAME_LENGTH_BETWEEN_6_AND_20": "Username must be between 6 and 20 characters long.",
+    "USERNAME_MUST_BE_STRING": "Username must be a string.",
+    "MIN_LENGTH_8": "Password must be at least 8 characters long.",
+    "AT_LEAST_ONE_UPPERCASE_LETTER": "Password must contain at least one uppercase letter.",
+    "AT_LEAST_ONE_LOWERCASE_LETTER": "Password must contain at least one lowercase letter.",
+    "AT_LEAST_ONE_NUMBER": "Password must contain at least one number.",
+    "AT_LEAST_ONE_SPECIAL_CHARACTER": "Password must contain at least one special character.",
+    "EMAIL_USERNAME_ALREADY_EXISTS": "The email or username is already registered. Please use a different one.",
+    "VERIFY_EMAIL_FAILED": "Something went wrong while verifying your email. Please try again later."
   }
 }

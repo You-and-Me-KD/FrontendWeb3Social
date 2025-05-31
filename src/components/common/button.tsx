@@ -85,23 +85,21 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         aria-disabled={disabled || loading}
         {...props}
       >
-        <RevealHover>
-          {loading ? (
-            <Loader2 className="animate-spin w-4 h-4 mr-2" aria-hidden="true" />
-          ) : (
-            prefix && (
-              <span className="mr-2" aria-hidden="true">
-                {prefix}
-              </span>
-            )
-          )}
-          <span>{children}</span>
-          {suffix && !loading && (
-            <span className="ml-2" aria-hidden="true">
-              {suffix}
+        {loading ? (
+          <Loader2 className="animate-spin w-4 h-4 mr-2" aria-hidden="true" />
+        ) : (
+          prefix && (
+            <span className="mr-2" aria-hidden="true">
+              {prefix}
             </span>
-          )}
-        </RevealHover>
+          )
+        )}
+        <span>{children}</span>
+        {suffix && !loading && (
+          <span className="ml-2" aria-hidden="true">
+            {suffix}
+          </span>
+        )}
       </button>
     );
   }
