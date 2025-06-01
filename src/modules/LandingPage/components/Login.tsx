@@ -1,20 +1,16 @@
 "use client";
 import { useLoginMutation } from "@/apis/auths";
-import {
-  FacebookIcon,
-  GoogleIcon,
-  MetamaskIcon,
-  rocketImage,
-  TwitterIcon,
-} from "@/assets";
+import { FacebookIcon, GoogleIcon, MetamaskIcon, rocketImage, TwitterIcon } from "@/assets";
 import { Button, Toast } from "@/components";
 import { CheckboxFields } from "@/components/form/checkbox-field";
 import FormWrapper from "@/components/form/form-wrapper";
 import { InputField } from "@/components/form/input-field";
 import { FormBox } from "@/components/ui";
 import useTranslations from "@/hooks/useTranslations";
+import { useRouter } from "@/i18n/navigation";
 import { getLoginSchema } from "@/libs";
 import { IAxiosResponse } from "@/types/common";
+import { RouteEnum } from "@/types/route";
 import { getErrorMessage } from "@/utils/fn";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
@@ -23,6 +19,8 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 const Login: FC = () => {
+  const router = useRouter();
+
   const { t } = useTranslations(["login", "common"]);
   const schema = getLoginSchema(t);
   const form = useForm({
@@ -53,24 +51,26 @@ const Login: FC = () => {
     }
   };
 
+  const handleForgot = () => {
+    router.push({
+      pathname: RouteEnum.HOME,
+      query: {
+        tab: "forgot-password",
+      },
+    });
+  };
+
   return (
     <div className="w-[484px] max-w-full">
       <FormBox className="">
-        <h4 className="xl:text-2xl text-xl font-bold text-center">
-          {t("login.title")}
-        </h4>
+        <h4 className="xl:text-2xl text-xl font-bold text-center">{t("login.title")}</h4>
         <FormWrapper
           formId="login-form"
           form={form}
           onSubmit={onSubmit}
           className="xl:mt-[4.75rem] flex flex-col gap-7 mt-10"
         >
-          <InputField
-            placeholder=" "
-            autoComplete="off"
-            name="email"
-            label={t("login.form.username-or-email")}
-          />
+          <InputField placeholder=" " autoComplete="off" name="email" label={t("login.form.username-or-email")} />
 
           <InputField
             placeholder=" "
@@ -88,7 +88,7 @@ const Login: FC = () => {
               color="green"
               rounded="md"
             />
-            <p className="font-bold text-main-2 cursor-pointer">
+            <p className="font-bold text-main-2 cursor-pointer" onClick={handleForgot}>
               {t("login.form.forgot")}
             </p>
           </div>

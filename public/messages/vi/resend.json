@@ -1,0 +1,13 @@
+{
+  "title": "Resend verification email",
+  "form": {
+    "email": "Email",
+    "password": "Password",
+    "remember": "Remember Me",
+    "forgot": "Forgot Password?",
+    "btn": "Send new email"
+  },
+  "information": {
+    "description": "Your new email will be expried in 30 minutes."
+  }
+}

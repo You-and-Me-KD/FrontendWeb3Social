@@ -4,4 +4,5 @@ export enum RouteEnum {
   REGISTER = "/register",
   VERIFY = "/verify",
   RESEND_EMAIL = "/resend-email",
+  FORGOT_PASSWORD = "/forgot-password",
 }

@@ -1,18 +1,18 @@
 import { create } from "zustand";
 
+export type TabType = "login" | "register" | "forgot-password" | "resend";
+
 type LandingStore = {
-  tab: "LOGIN" | "REGISTER";
+  tab: TabType;
 };
 
 const store = () => ({
-  tab: "LOGIN" as LandingStore["tab"],
+  tab: "login" as LandingStore["tab"],
 });
 
 const useLandingStore = create<LandingStore>(store);
 export default useLandingStore;
 
-export function setLandingStore<T extends keyof LandingStore>(
-  x: Pick<LandingStore, T>
-) {
+export function setLandingStore<T extends keyof LandingStore>(x: Pick<LandingStore, T>) {
   useLandingStore.setState(x);
 }
