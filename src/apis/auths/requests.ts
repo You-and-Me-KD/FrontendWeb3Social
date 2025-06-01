@@ -6,12 +6,11 @@ import {
   ILoginResponse,
   IRegisterRequest,
   IRegisterResponse,
+  IResendRequest,
   IVerifyTokenRequest,
 } from "./types";
 
-export const loginRequest = async (
-  params: ILoginRequest
-): Promise<ILoginResponse> => {
+export const loginRequest = async (params: ILoginRequest): Promise<ILoginResponse> => {
   const { data } = await authRequest.post<ILoginResponse>(KEYS.LOGIN, params);
   return data;
 };
@@ -25,19 +24,17 @@ export const logoutRequest = async (): Promise<void> => {
   await authRequest.post<void>(KEYS.LOGOUT);
 };
 
-export const registerRequest = async (
-  params: IRegisterRequest
-): Promise<IRegisterResponse> => {
-  const { data } = await authRequest.post<IRegisterResponse>(
-    KEYS.REGISTER,
-    params
-  );
+export const registerRequest = async (params: IRegisterRequest): Promise<IRegisterResponse> => {
+  const { data } = await authRequest.post<IRegisterResponse>(KEYS.REGISTER, params);
   return data;
 };
 
-export const verifyToken = async (
-  params: IVerifyTokenRequest
-): Promise<IGetMeResponse> => {
+export const verifyToken = async (params: IVerifyTokenRequest): Promise<IGetMeResponse> => {
   const { data } = await authRequest.post<IGetMeResponse>(KEYS.VERIFY, params);
+  return data;
+};
+
+export const resendVerification = async (params: IResendRequest): Promise<IGetMeResponse> => {
+  const { data } = await authRequest.post<IGetMeResponse>(KEYS.RESEND, params);
   return data;
 };

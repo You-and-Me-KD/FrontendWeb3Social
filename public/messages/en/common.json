@@ -20,19 +20,22 @@
     "success": {
       "login": "Login successfully!",
       "register": "Registration successful!",
-      "verify-success": "Email verification successful!"
+      "verify-success": "Email verification successful!",
+      "resend-email": "Verification email resent successfully!"
     },
     "error": {
       "login": "Login failed!",
       "register": "Registration failed!",
-      "verify-error": "Email verification failed!"
+      "verify-error": "Email verification failed!",
+      "resend-email-error": "Failed to resend verification email!"
     }
   },
   "success": {
     "LOGIN_SUCCESS": "Login successful. Welcome to the sites!",
     "REGISTER_SUCCESS": "Registration successful. Please check your email to verify your account.",
     "PASSWORD_RESET_SUCCESS": "Password reset link has been sent to your email.",
-    "EMAIL_VERIFICATION_SUCCESS": "You can now log in."
+    "EMAIL_VERIFICATION_SUCCESS": "You can now log in.",
+    "RESEND_EMAIL_SUCCESS": "Verification email has been resent. Please check your inbox."
   },
   "error": {
     "NOT_FOUND": "Something went wrong.<br /> Please try login again later.",
@@ -52,6 +55,7 @@
     "AT_LEAST_ONE_NUMBER": "Password must contain at least one number.",
     "AT_LEAST_ONE_SPECIAL_CHARACTER": "Password must contain at least one special character.",
     "EMAIL_USERNAME_ALREADY_EXISTS": "The email or username is already registered. Please use a different one.",
-    "VERIFY_EMAIL_FAILED": "Something went wrong while verifying your email. Please try again later."
+    "VERIFY_EMAIL_FAILED": "Something went wrong while verifying your email. Please try again later.",
+    "TOO_MANY_REQUESTS_SEND_EMAIL": "Too many requests. Please wait a while before trying to resend the verification email."
   }
 }

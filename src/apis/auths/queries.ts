@@ -1,5 +1,5 @@
 import { useMutation, useQuery, UseQueryOptions } from "@tanstack/react-query";
-import { getMe, loginRequest, registerRequest, verifyToken } from "./requests";
+import { getMe, loginRequest, registerRequest, resendVerification, verifyToken } from "./requests";
 import { KEYS } from "./keys";
 import {
   IGetMeResponse,
@@ -7,13 +7,12 @@ import {
   ILoginResponse,
   IRegisterRequest,
   IRegisterResponse,
+  IResendRequest,
   IVerifyTokenRequest,
 } from "./types";
 import { IAxiosResponse } from "@/types/common";
 
-export const useGetMe = (
-  options: Omit<UseQueryOptions<IGetMeResponse, Error>, "queryKey">
-) => {
+export const useGetMe = (options: Omit<UseQueryOptions<IGetMeResponse, Error>, "queryKey">) => {
   return useQuery<IGetMeResponse, Error>({
     queryKey: [KEYS.ME],
     queryFn: getMe,
@@ -39,5 +38,12 @@ export const useVerifyMutation = () => {
   return useMutation<IGetMeResponse, IAxiosResponse, IVerifyTokenRequest>({
     mutationKey: [KEYS.VERIFY],
     mutationFn: verifyToken,
+  });
+};
+
+export const useResendVerification = () => {
+  return useMutation<IGetMeResponse, IAxiosResponse, IResendRequest>({
+    mutationKey: [KEYS.RESEND],
+    mutationFn: resendVerification,
   });
 };

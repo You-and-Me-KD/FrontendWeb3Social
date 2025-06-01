@@ -25,14 +25,19 @@ const VerifyPage: FC = () => {
               label: t("toast.success.verify-success"),
               description: t("success.EMAIL_VERIFICATION_SUCCESS"),
             });
-            router.push(RouteEnum.LOGIN);
+            router.push(RouteEnum.HOME);
           },
           onError: async () => {
             Toast.error({
               label: t("toast.error.verify-error"),
               description: t("error.VERIFY_EMAIL_FAILED"),
             });
-            router.push(RouteEnum.RESEND_EMAIL);
+            router.push({
+              pathname: RouteEnum.HOME,
+              query: {
+                tab: "resend",
+              },
+            });
           },
         }
       );

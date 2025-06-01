@@ -112,3 +112,7 @@ export interface IGetMeResponse {
 export interface IVerifyTokenRequest {
   token: string;
 }
+
+export interface IResendRequest {
+  email: string;
+}
