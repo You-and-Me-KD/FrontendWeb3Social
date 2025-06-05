@@ -1,5 +1,5 @@
 "use client";
-import { useResendVerification } from "@/apis/auths";
+import { useResendVerificationMutation } from "@/apis/auths";
 import { rocketImage } from "@/assets";
 import { Button, Toast } from "@/components";
 import FormWrapper from "@/components/form/form-wrapper";
@@ -22,7 +22,7 @@ const Resend: FC = () => {
     resolver: zodResolver(schema),
   });
 
-  const { mutateAsync } = useResendVerification();
+  const { mutateAsync } = useResendVerificationMutation();
 
   const onSubmit = async (data: z.infer<typeof schema>) => {
     try {

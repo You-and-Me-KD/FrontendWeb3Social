@@ -1,12 +1,14 @@
 import { authRequest } from "../axios";
 import { KEYS } from "./keys";
 import {
+  IForgotPasswordRequest,
   IGetMeResponse,
   ILoginRequest,
   ILoginResponse,
   IRegisterRequest,
   IRegisterResponse,
   IResendRequest,
+  IResetPasswordRequest,
   IVerifyTokenRequest,
 } from "./types";
 
@@ -36,5 +38,15 @@ export const verifyToken = async (params: IVerifyTokenRequest): Promise<IGetMeRe
 
 export const resendVerification = async (params: IResendRequest): Promise<IGetMeResponse> => {
   const { data } = await authRequest.post<IGetMeResponse>(KEYS.RESEND, params);
+  return data;
+};
+
+export const forgotPassword = async (params: IForgotPasswordRequest): Promise<IGetMeResponse> => {
+  const { data } = await authRequest.post<IGetMeResponse>(KEYS.FORGOT_PASSWORD, params);
+  return data;
+};
+
+export const resetPassword = async (params: IResetPasswordRequest): Promise<IGetMeResponse> => {
+  const { data } = await authRequest.post<IGetMeResponse>(KEYS.RESET_PASSWORD, params);
   return data;
 };

@@ -5,4 +5,6 @@ export const KEYS = {
   ME: "/auths/me",
   VERIFY: "/auths/verify-token",
   RESEND: "/auths/resend-verification",
+  FORGOT_PASSWORD: "/auths/forgot-password",
+  RESET_PASSWORD: "/auths/reset-password",
 };

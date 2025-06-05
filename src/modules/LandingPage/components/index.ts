@@ -6,5 +6,6 @@ import AnimatedPanel from "./AnimatedPanel";
 import Resend from "./Resend";
 import Register from "./Register";
 import ForgotPassword from "./ForgotPassword";
+import ResetPassword from "./ResetPassword";
 
-export { Login, Information, Tabs, Decoration, AnimatedPanel, Resend, Register, ForgotPassword };
+export { Login, Information, Tabs, Decoration, AnimatedPanel, Resend, Register, ForgotPassword, ResetPassword };

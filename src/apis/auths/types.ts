@@ -116,3 +116,12 @@ export interface IVerifyTokenRequest {
 export interface IResendRequest {
   email: string;
 }
+
+export interface IForgotPasswordRequest {
+  email: string;
+}
+
+export interface IResetPasswordRequest {
+  token: string;
+  newPassword: string;
+}

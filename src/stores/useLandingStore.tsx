@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export type TabType = "login" | "register" | "forgot-password" | "resend";
+export type TabType = "login" | "register" | "forgot-password" | "resend" | "reset-password";
 
 type LandingStore = {
   tab: TabType;

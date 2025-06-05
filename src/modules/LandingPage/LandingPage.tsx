@@ -1,14 +1,14 @@
 "use client";
 import useSearchParams from "@/hooks/useSearchParams";
 import { FC, useMemo } from "react";
-import { AnimatedPanel, Decoration, ForgotPassword, Information, Login, Register, Resend } from "./components";
+import { AnimatedPanel, Decoration, ForgotPassword, Information, Login, Register, Resend, ResetPassword } from "./components";
 import { TabType } from "@/stores/useLandingStore";
 
 const LandingPage: FC = () => {
   const { searchParams } = useSearchParams();
   const tab = (searchParams.get("tab") || "login") as TabType;
   const convertActiveTab = useMemo(() => {
-    return ["forgot-password", "login"].includes(tab) ? "login" : "register";
+    return ["forgot-password", "login", "reset-password"].includes(tab) ? "login" : "register";
   }, [tab]);
   return (
     <section className="w-full xl:h-full h-auto bg-[url(/images/landing-background.webp)] bg-no-repeat bg-center bg-cover xl:fixed top-0 left-0 xl:px-0 px-3 xl:py-0 py-6">
@@ -30,6 +30,10 @@ const LandingPage: FC = () => {
 
         <AnimatedPanel visible={tab === "forgot-password"}>
           <ForgotPassword />
+        </AnimatedPanel>
+
+        <AnimatedPanel visible={tab === "reset-password"}>
+          <ResetPassword />
         </AnimatedPanel>
       </div>
     </section>
