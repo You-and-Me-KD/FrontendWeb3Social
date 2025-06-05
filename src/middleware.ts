@@ -8,13 +8,9 @@ const intlMiddleware = createMiddleware(routing);
 export default function middleware(request: NextRequest) {
   const token = request.cookies.get("token")?.value;
   const { pathname } = request.nextUrl;
-
   if (pathname.includes("/profile")) {
     if (!token) {
-      const currentLocale = pathname.split("/")[1] || routing.defaultLocale;
-      return NextResponse.redirect(
-        new URL(`/${currentLocale}/login`, request.url)
-      );
+      return NextResponse.redirect(new URL(`/login`, request.url));
     }
   }
 
@@ -23,7 +19,8 @@ export default function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/profile/:path*",
+    "/",
+    "/(de|en)/:path*",
     "/((?!api|trpc|_next|_vercel|.*\\..*).*)",
     /*
      * Match all request paths except:
