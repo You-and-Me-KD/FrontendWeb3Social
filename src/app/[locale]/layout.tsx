@@ -25,6 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Web3s Social',
     description: 'Social network with web3 features',
+    keywords: 'Web3, social network, decentralized, blockchain, community',
   }
 }
 export default async function LocaleLayout({
