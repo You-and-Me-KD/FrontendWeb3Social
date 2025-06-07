@@ -39,14 +39,14 @@ const ResetPassword: FC = () => {
       await mutateAsync(request, {
         onSuccess: () => {
           Toast.success({
-            label: t('common.toast.success.reset-password'),
-            description: t('common.success.RESET_PASSWORD_SUCCESS'),
+            label: t('toast.success.reset-password'),
+            description: t('success.RESET_PASSWORD_SUCCESS'),
           })
         },
         onError: async (error: IAxiosResponse) => {
           const text = await getErrorMessage(error?.meta.message)
           Toast.error({
-            label: t('common.toast.error.reset-password-error'),
+            label: t('toast.error.reset-password-error'),
             description: t(text),
           })
         },

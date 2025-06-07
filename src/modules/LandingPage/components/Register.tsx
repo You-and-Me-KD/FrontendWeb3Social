@@ -45,15 +45,15 @@ const Register: FC = () => {
       await mutateAsync(requestData, {
         onSuccess: () => {
           Toast.success({
-            label: t('common.toast.success.register'),
-            description: t('common.success.REGISTER_SUCCESS'),
+            label: t('toast.success.register'),
+            description: t('success.REGISTER_SUCCESS'),
           })
         },
         onError: async (error: IAxiosResponse) => {
           const text = await getErrorMessage(error?.meta.message)
 
           Toast.error({
-            label: t('common.toast.error.register'),
+            label: t('toast.error.register'),
             description: t(text),
           })
         },

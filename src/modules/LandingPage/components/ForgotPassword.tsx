@@ -30,14 +30,14 @@ const ForgotPassword: FC = () => {
       await mutateAsync(data, {
         onSuccess: () => {
           Toast.success({
-            label: t('common.toast.success.forgot-password'),
-            description: t('common.success.FORGOT_PASSWORD_SUCCESS'),
+            label: t('toast.success.forgot-password'),
+            description: t('success.FORGOT_PASSWORD_SUCCESS'),
           })
         },
         onError: async (error: IAxiosResponse) => {
           const text = await getErrorMessage(error?.meta.message)
           Toast.error({
-            label: t('common.toast.error.forgot-password-error'),
+            label: t('toast.error.forgot-password-error'),
             description: t(text),
           })
         },

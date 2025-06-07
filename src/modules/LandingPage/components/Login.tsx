@@ -35,14 +35,14 @@ const Login: FC = () => {
       await mutateAsync(data, {
         onSuccess: () => {
           Toast.success({
-            label: t('common.toast.success.login'),
-            description: t('common.success.LOGIN_SUCCESS'),
+            label: t('toast.success.login'),
+            description: t('success.LOGIN_SUCCESS'),
           })
         },
         onError: async (error: IAxiosResponse) => {
           const text = await getErrorMessage(error?.meta.message)
           Toast.error({
-            label: t('common.toast.error.login'),
+            label: t('toast.error.login'),
             description: t(text),
           })
         },

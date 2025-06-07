@@ -30,14 +30,14 @@ const Resend: FC = () => {
       await mutateAsync(data, {
         onSuccess: () => {
           Toast.success({
-            label: t('common.toast.success.resend-email'),
-            description: t('common.success.RESEND_EMAIL_SUCCESS'),
+            label: t('toast.success.resend-email'),
+            description: t('success.RESEND_EMAIL_SUCCESS'),
           })
         },
         onError: async (error: IAxiosResponse) => {
           const text = await getErrorMessage(error?.meta.message)
           Toast.error({
-            label: t('common.toast.error.resend-email-error'),
+            label: t('toast.error.resend-email-error'),
             description: t(text),
           })
         },
