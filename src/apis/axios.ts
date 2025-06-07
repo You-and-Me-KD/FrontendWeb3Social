@@ -2,7 +2,7 @@ import { IAxiosResponse } from '@/types/common'
 import { envConfig } from '@/utils'
 import axios, { AxiosError, AxiosResponse } from 'axios'
 
-// Make it to custom for microservices request in BE
+// Make it to custom for microservices request from BE
 const createAxiosInstance = (baseURL: string) => {
   const instance = axios.create({ baseURL })
 
