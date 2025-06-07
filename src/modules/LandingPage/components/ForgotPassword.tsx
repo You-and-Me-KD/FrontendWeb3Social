@@ -1,66 +1,67 @@
-"use client";
-import { useForgotPassword } from "@/apis/auths";
-import { rocketImage } from "@/assets";
-import { Button, Toast } from "@/components";
-import FormWrapper from "@/components/form/form-wrapper";
-import { InputField } from "@/components/form/input-field";
-import { FormBox } from "@/components/ui";
-import useTranslations from "@/hooks/useTranslations";
-import { getForgotPasswordSchema } from "@/libs";
-import { IAxiosResponse } from "@/types/common";
-import { getErrorMessage } from "@/utils/fn";
-import { zodResolver } from "@hookform/resolvers/zod";
-import Image from "next/image";
-import { FC } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+'use client'
+import { useForgotPassword } from '@/apis/auths'
+import { rocketImage } from '@/assets'
+import { Button, Toast } from '@/components'
+import FormWrapper from '@/components/form/form-wrapper'
+import { InputField } from '@/components/form/input-field'
+import { FormBox } from '@/components/ui'
+import useTranslations from '@/hooks/useTranslations'
+import { getForgotPasswordSchema } from '@/libs'
+import { IAxiosResponse } from '@/types/common'
+import { getErrorMessage } from '@/utils/fn'
+import { zodResolver } from '@hookform/resolvers/zod'
+import Image from 'next/image'
+import { FC } from 'react'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
 
 const ForgotPassword: FC = () => {
-  const { t } = useTranslations(["forgot", "common"]);
-  const schema = getForgotPasswordSchema(t);
+  const { t } = useTranslations('common')
+  const { t: tForgot } = useTranslations('forgot')
+  const schema = getForgotPasswordSchema(t)
   const form = useForm({
     resolver: zodResolver(schema),
-  });
+  })
 
-  const { mutateAsync } = useForgotPassword();
+  const { mutateAsync } = useForgotPassword()
 
   const onSubmit = async (data: z.infer<typeof schema>) => {
     try {
       await mutateAsync(data, {
         onSuccess: () => {
           Toast.success({
-            label: t("common.toast.success.forgot-password"),
-            description: t("common.success.FORGOT_PASSWORD_SUCCESS"),
-          });
+            label: t('common.toast.success.forgot-password'),
+            description: t('common.success.FORGOT_PASSWORD_SUCCESS'),
+          })
         },
         onError: async (error: IAxiosResponse) => {
-          const text = await getErrorMessage(error?.meta.message);
+          const text = await getErrorMessage(error?.meta.message)
           Toast.error({
-            label: t("common.toast.error.forgot-password-error"),
+            label: t('common.toast.error.forgot-password-error'),
             description: t(text),
-          });
+          })
         },
-      });
+      })
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  };
+  }
 
   return (
     <div className="w-[484px] max-w-full">
       <FormBox className="">
-        <h4 className="xl:text-2xl text-xl font-bold text-center">{t("forgot.title")}</h4>
+        <h4 className="text-center text-xl font-bold xl:text-2xl">{tForgot('title')}</h4>
         <FormWrapper
           formId="login-form"
           form={form}
           onSubmit={onSubmit}
-          className="xl:mt-[2rem] flex flex-col gap-7 mt-10"
+          className="mt-10 flex flex-col gap-7 xl:mt-[2rem]"
         >
-          <InputField placeholder=" " autoComplete="off" name="email" label={t("forgot.form.email")} />
-          <div className="flex items-center justify-between text-sm flex-wrap">
-            <p className="font-bold text-main-2 cursor-pointer">{t("forgot.information.description")}</p>
+          <InputField placeholder=" " autoComplete="off" name="email" label={tForgot('form.email')} />
+          <div className="flex flex-wrap items-center justify-between text-sm">
+            <p className="text-main-2 cursor-pointer font-bold">{tForgot('information.description')}</p>
           </div>
-          <Button variant="secondary">{t("forgot.form.btn")}</Button>
+          <Button variant="secondary">{tForgot('form.btn')}</Button>
         </FormWrapper>
       </FormBox>
       <Image
@@ -68,9 +69,9 @@ const ForgotPassword: FC = () => {
         alt="rocket"
         width={160}
         height={156}
-        className="md:block hidden absolute -left-20 -top-17"
+        className="absolute -top-17 -left-20 hidden md:block"
       />
     </div>
-  );
-};
-export default ForgotPassword;
+  )
+}
+export default ForgotPassword

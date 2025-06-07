@@ -1,23 +1,18 @@
-import {
-  FieldValues,
-  FormProvider,
-  SubmitHandler,
-  UseFormReturn,
-} from "react-hook-form";
+import { FieldValues, FormProvider, SubmitHandler, UseFormReturn } from 'react-hook-form'
 
 export interface FormWrapperProps<T extends FieldValues> {
-  form: UseFormReturn<T, any>;
-  onSubmit: SubmitHandler<T>;
-  children?: React.ReactNode;
-  formId?: string;
-  className?: string;
+  form: UseFormReturn<T, unknown>
+  onSubmit: SubmitHandler<T>
+  children?: React.ReactNode
+  formId?: string
+  className?: string
 }
 
 const FormWrapper = <TFormValue extends FieldValues>({
   form,
   onSubmit,
   children,
-  formId = "form-submit-wrapper",
+  formId = 'form-submit-wrapper',
   className,
 }: FormWrapperProps<TFormValue>) => {
   return (
@@ -31,7 +26,7 @@ const FormWrapper = <TFormValue extends FieldValues>({
         {children}
       </form>
     </FormProvider>
-  );
-};
+  )
+}
 
-export default FormWrapper;
+export default FormWrapper

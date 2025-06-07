@@ -1,13 +1,8 @@
-import React from "react";
+import React from 'react'
 
 export const MetamaskIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 142 137"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 142 137" {...props}>
       <path
         fill="#FF5C16"
         d="m132.24 131.751-30.481-9.076-22.986 13.741-16.038-.007-23-13.734-30.467 9.076L0 100.465l9.268-34.723L0 36.385 9.268 0l47.607 28.443h27.757L132.24 0l9.268 36.385-9.268 29.357 9.268 34.723-9.268 31.286Z"
@@ -34,5 +29,5 @@ export const MetamaskIcon = (props: React.SVGProps<SVGSVGElement>) => {
         d="m39.742 122.662 23.006 13.754v-12.453l-2.06-7.541-20.946 6.24Zm62.031 0-23.007 13.754v-12.453l2.06-7.541 20.947 6.24Z"
       />
     </svg>
-  );
-};
+  )
+}

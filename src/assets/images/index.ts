@@ -1,3 +1,3 @@
-import rocketImage from "./rocket.webp";
+import rocketImage from './rocket.webp'
 
-export { rocketImage };
+export { rocketImage }

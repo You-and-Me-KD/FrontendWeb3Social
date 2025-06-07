@@ -1,19 +1,12 @@
-import React from "react";
+import React from 'react'
 
 export const XIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M12,9.6L9.6,12L6,8.399L2.4,12L0,9.6L3.6,6L0,2.4L2.4,0L6,3.6L9.6,0L12,2.4L8.399,6L12,9.6z"
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}

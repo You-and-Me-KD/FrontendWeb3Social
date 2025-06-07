@@ -1,116 +1,117 @@
-"use client";
-import { useLoginMutation } from "@/apis/auths";
-import { FacebookIcon, GoogleIcon, MetamaskIcon, rocketImage, TwitterIcon } from "@/assets";
-import { Button, Toast } from "@/components";
-import { CheckboxFields } from "@/components/form/checkbox-field";
-import FormWrapper from "@/components/form/form-wrapper";
-import { InputField } from "@/components/form/input-field";
-import { FormBox } from "@/components/ui";
-import useTranslations from "@/hooks/useTranslations";
-import { useRouter } from "@/i18n/navigation";
-import { getLoginSchema } from "@/libs";
-import { IAxiosResponse } from "@/types/common";
-import { RouteEnum } from "@/types/route";
-import { getErrorMessage } from "@/utils/fn";
-import { zodResolver } from "@hookform/resolvers/zod";
-import Image from "next/image";
-import { FC } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+'use client'
+import { useLoginMutation } from '@/apis/auths'
+import { FacebookIcon, GoogleIcon, MetamaskIcon, rocketImage, TwitterIcon } from '@/assets'
+import { Button, Toast } from '@/components'
+import { CheckboxFields } from '@/components/form/checkbox-field'
+import FormWrapper from '@/components/form/form-wrapper'
+import { InputField } from '@/components/form/input-field'
+import { FormBox } from '@/components/ui'
+import useTranslations from '@/hooks/useTranslations'
+import { useRouter } from '@/i18n/navigation'
+import { getLoginSchema } from '@/libs'
+import { IAxiosResponse } from '@/types/common'
+import { RouteEnum } from '@/types/route'
+import { getErrorMessage } from '@/utils/fn'
+import { zodResolver } from '@hookform/resolvers/zod'
+import Image from 'next/image'
+import { FC } from 'react'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
 
 const Login: FC = () => {
-  const router = useRouter();
+  const router = useRouter()
 
-  const { t } = useTranslations(["login", "common"]);
-  const schema = getLoginSchema(t);
+  const { t } = useTranslations('common')
+  const { t: tLogin } = useTranslations('login')
+  const schema = getLoginSchema(t)
   const form = useForm({
     resolver: zodResolver(schema),
-  });
+  })
 
-  const { mutateAsync } = useLoginMutation();
+  const { mutateAsync } = useLoginMutation()
 
   const onSubmit = async (data: z.infer<typeof schema>) => {
     try {
       await mutateAsync(data, {
         onSuccess: () => {
           Toast.success({
-            label: t("common.toast.success.login"),
-            description: t("common.success.LOGIN_SUCCESS"),
-          });
+            label: t('common.toast.success.login'),
+            description: t('common.success.LOGIN_SUCCESS'),
+          })
         },
         onError: async (error: IAxiosResponse) => {
-          const text = await getErrorMessage(error?.meta.message);
+          const text = await getErrorMessage(error?.meta.message)
           Toast.error({
-            label: t("common.toast.error.login"),
+            label: t('common.toast.error.login'),
             description: t(text),
-          });
+          })
         },
-      });
+      })
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  };
+  }
 
   const handleForgot = () => {
     router.push({
       pathname: RouteEnum.HOME,
       query: {
-        tab: "forgot-password",
+        tab: 'forgot-password',
       },
-    });
-  };
+    })
+  }
 
   return (
     <div className="w-[484px] max-w-full">
       <FormBox className="">
-        <h4 className="xl:text-2xl text-xl font-bold text-center">{t("login.title")}</h4>
+        <h4 className="text-center text-xl font-bold xl:text-2xl">{tLogin('title')}</h4>
         <FormWrapper
           formId="login-form"
           form={form}
           onSubmit={onSubmit}
-          className="xl:mt-[4.75rem] flex flex-col gap-7 mt-10"
+          className="mt-10 flex flex-col gap-7 xl:mt-[4.75rem]"
         >
-          <InputField placeholder=" " autoComplete="off" name="email" label={t("login.form.username-or-email")} />
+          <InputField placeholder=" " autoComplete="off" name="email" label={tLogin('form.username-or-email')} />
 
           <InputField
             placeholder=" "
             autoComplete="new-password"
             name="password"
-            label={t("login.form.password")}
+            label={tLogin('form.password')}
             type="password"
           />
-          <div className="flex items-center justify-between text-sm flex-wrap">
+          <div className="flex flex-wrap items-center justify-between text-sm">
             <CheckboxFields
               id="remember"
               name="remember"
-              label={t("login.form.remember")}
+              label={tLogin('form.remember')}
               checkboxSize="medium"
               color="green"
               rounded="md"
             />
-            <p className="font-bold text-main-2 cursor-pointer" onClick={handleForgot}>
-              {t("login.form.forgot")}
-            </p>
+            <button className="text-main-2 cursor-pointer font-bold" onClick={handleForgot}>
+              {tLogin('form.forgot')}
+            </button>
           </div>
-          <Button variant="secondary">{t("login.form.btn")}</Button>
+          <Button variant="secondary">{tLogin('form.btn')}</Button>
         </FormWrapper>
-        <div className="text-white font-bold text-sm flex items-center justify-center gap-4 mt-10">
-          <div className="flex-1 h-[1px] bg-main-3"></div>
-          <p>{t("login.form.login-social")}</p>
-          <div className="flex-1 h-[1px] bg-main-3"></div>
+        <div className="mt-10 flex items-center justify-center gap-4 text-sm font-bold text-white">
+          <div className="bg-main-3 h-[1px] flex-1"></div>
+          <p>{tLogin('form.login-social')}</p>
+          <div className="bg-main-3 h-[1px] flex-1"></div>
         </div>
-        <div className="flex items-center justify-center mt-7 gap-3 flex-wrap">
-          <div className="bg-white rounded-xl p-1 w-10 h-10 flex items-center justify-center cursor-pointer hover:opacity-80 transition-all duration-300">
-            <GoogleIcon className="w-4 h-4" />
+        <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+          <div className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl bg-white p-1 transition-all duration-300 hover:opacity-80">
+            <GoogleIcon className="h-4 w-4" />
           </div>
-          <div className="bg-white rounded-xl p-1 w-10 h-10 flex items-center justify-center cursor-pointer hover:opacity-80 transition-all duration-300">
+          <div className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl bg-white p-1 transition-all duration-300 hover:opacity-80">
             <FacebookIcon />
           </div>
-          <div className="bg-white rounded-xl p-1 w-10 h-10 flex items-center justify-center cursor-pointer hover:opacity-80 transition-all duration-300">
-            <TwitterIcon className="w-4 h-4" />
+          <div className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl bg-white p-1 transition-all duration-300 hover:opacity-80">
+            <TwitterIcon className="h-4 w-4" />
           </div>
-          <div className="bg-white rounded-xl p-1 w-10 h-10 flex items-center justify-center cursor-pointer hover:opacity-80 transition-all duration-300">
-            <MetamaskIcon className="w-4 h-4" />
+          <div className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl bg-white p-1 transition-all duration-300 hover:opacity-80">
+            <MetamaskIcon className="h-4 w-4" />
           </div>
         </div>
       </FormBox>
@@ -119,9 +120,9 @@ const Login: FC = () => {
         alt="rocket"
         width={160}
         height={156}
-        className="md:block hidden absolute -left-20 -top-17"
+        className="absolute -top-17 -left-20 hidden md:block"
       />
     </div>
-  );
-};
-export default Login;
+  )
+}
+export default Login

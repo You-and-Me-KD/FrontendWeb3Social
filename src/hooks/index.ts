@@ -1,2 +1,2 @@
-export * from "./useTranslations";
-export * from "./useSearchParams";
+export * from './useTranslations'
+export * from './useSearchParams'

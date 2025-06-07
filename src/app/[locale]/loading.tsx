@@ -1,6 +1,6 @@
-import { LoadingAllPage } from "@/components";
+import { LoadingAllPage } from '@/components'
 
 export default function Loading() {
   // Or a custom loading skeleton component
-  return <LoadingAllPage />;
+  return <LoadingAllPage />
 }

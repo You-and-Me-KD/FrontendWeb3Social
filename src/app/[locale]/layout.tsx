@@ -1,45 +1,45 @@
-import type { Metadata } from "next";
-import { Rajdhani, Titillium_Web } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next'
+import { Rajdhani, Titillium_Web } from 'next/font/google'
+import './globals.css'
 
-import { routing } from "@/i18n/routing";
-import LayoutProvider from "@/libs/common/LayoutProvider";
-import ReactQueryProvider from "@/libs/react-query/Provider";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
-import { notFound } from "next/navigation";
+import { routing } from '@/i18n/routing'
+import LayoutProvider from '@/libs/common/LayoutProvider'
+import ReactQueryProvider from '@/libs/react-query/Provider'
+import { hasLocale, NextIntlClientProvider } from 'next-intl'
+import { setRequestLocale } from 'next-intl/server'
+import { notFound } from 'next/navigation'
 
 const fontSans = Rajdhani({
-  variable: "--font-rajdhani-sans",
-  weight: ["300", "400", "500", "600", "700"],
-  subsets: ["latin"],
-});
+  variable: '--font-rajdhani-sans',
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+})
 
 const fontSans2 = Titillium_Web({
-  variable: "--font-titillium-web-sans",
-  weight: ["200", "300", "400", "600", "700", "900"],
-  subsets: ["latin"],
-});
+  variable: '--font-titillium-web-sans',
+  weight: ['200', '300', '400', '600', '700', '900'],
+  subsets: ['latin'],
+})
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Web3s Social",
-    description: "Social network with web3 features",
-  };
+    title: 'Web3s Social',
+    description: 'Social network with web3 features',
+  }
 }
 export default async function LocaleLayout({
   children,
   params,
 }: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
 }) {
   // Ensure that the incoming `locale` is valid
-  const { locale } = await params;
+  const { locale } = await params
   if (!hasLocale(routing.locales, locale)) {
-    notFound();
+    notFound()
   }
-  setRequestLocale(locale);
+  setRequestLocale(locale)
 
   return (
     <html lang={locale}>
@@ -51,5 +51,5 @@ export default async function LocaleLayout({
         </ReactQueryProvider>
       </NextIntlClientProvider>
     </html>
-  );
+  )
 }

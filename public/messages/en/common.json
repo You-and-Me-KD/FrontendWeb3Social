@@ -7,7 +7,10 @@
     "common": "This field is invalid",
     "required": "{field} is required",
     "minlength": "{field} must be at least {min} characters",
-    "maxlength": "{field} must be at most {max} characters"
+    "maxlength": "{field} must be at most {max} characters",
+    "passwordComplexity": "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
+    "emailInvalid": "Please enter a valid email address",
+    "passwordsDoNotMatch": "Passwords do not match"
   },
   "fields": {
     "username-or-email": "Username or Email",

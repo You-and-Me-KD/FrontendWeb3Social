@@ -1,19 +1,20 @@
-import { IAxiosResponse } from "@/types/common";
-import { envConfig } from "@/utils";
-import axios, { AxiosError, AxiosResponse } from "axios";
+import { IAxiosResponse } from '@/types/common'
+import { envConfig } from '@/utils'
+import axios, { AxiosError, AxiosResponse } from 'axios'
 
+// Make it to custom for microservices request in BE
 const createAxiosInstance = (baseURL: string) => {
-  const instance = axios.create({ baseURL });
+  const instance = axios.create({ baseURL })
 
   const handleSuccess = (response: AxiosResponse) => {
-    return response.data;
-  };
+    return response.data
+  }
 
   const handleError = (error: AxiosError) => {
-    const originalError = error.response!.data as IAxiosResponse;
+    const originalError = error.response!.data as IAxiosResponse
     console.log(originalError, 'originalError')
-    return Promise.reject(originalError || error);
-  };
+    return Promise.reject(originalError || error)
+  }
 
   // instance.interceptors.request.use(
   //   async (config) => {
@@ -25,9 +26,9 @@ const createAxiosInstance = (baseURL: string) => {
   //   (error) => Promise.reject(error)
   // );
 
-  instance.interceptors.response.use(handleSuccess, handleError);
+  instance.interceptors.response.use(handleSuccess, handleError)
 
-  return instance;
-};
+  return instance
+}
 
-export const authRequest = createAxiosInstance(envConfig.AUTH_API);
+export const authRequest = createAxiosInstance(envConfig.AUTH_API)

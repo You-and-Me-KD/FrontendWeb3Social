@@ -1,47 +1,47 @@
-import React, { forwardRef } from "react";
-import { Loader2 } from "lucide-react";
-import { cn } from "@/libs/utils";
+import React, { forwardRef } from 'react'
+import { Loader2 } from 'lucide-react'
+import { cn } from '@/libs/utils'
 
-type Variant = NonNullable<ButtonProps["variant"]>;
-type Size = NonNullable<ButtonProps["size"]>;
-type Rounded = NonNullable<ButtonProps["rounded"]>;
+type Variant = NonNullable<ButtonProps['variant']>
+type Size = NonNullable<ButtonProps['size']>
+type Rounded = NonNullable<ButtonProps['rounded']>
 
 export type ButtonProps = {
-  children: React.ReactNode;
-  variant?: "primary" | "secondary" | "ghost" | "outline" | "danger" | "custom";
-  size?: "small" | "medium" | "large";
-  color?: "blue" | "gray" | "red" | "green" | "purple" | string;
-  loading?: boolean;
-  disabled?: boolean;
-  prefix?: React.ReactNode;
-  suffix?: React.ReactNode;
-  fullWidth?: boolean;
-  rounded?: "none" | "sm" | "md" | "lg" | "xl" | "full";
-  className?: string;
-  customVariantStyles?: string;
-} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+  children: React.ReactNode
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline' | 'danger' | 'custom'
+  size?: 'small' | 'medium' | 'large'
+  color?: 'blue' | 'gray' | 'red' | 'green' | 'purple' | string
+  loading?: boolean
+  disabled?: boolean
+  prefix?: React.ReactNode
+  suffix?: React.ReactNode
+  fullWidth?: boolean
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
+  className?: string
+  customVariantStyles?: string
+} & React.ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       children,
-      variant = "primary",
-      size = "medium",
-      color = "blue",
+      variant = 'primary',
+      size = 'medium',
+      color = 'blue',
       loading = false,
       disabled = false,
       prefix,
       suffix,
       fullWidth = false,
-      rounded = "xl",
+      rounded = 'xl',
       className,
-      customVariantStyles = "",
+      customVariantStyles = '',
       ...props
     },
-    ref
+    ref,
   ) => {
     const baseStyles =
-      "inline-flex items-center justify-center font-bold transition-colors duration-200 focus:outline-none focus-visible:outline-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed";
+      'inline-flex items-center justify-center font-bold transition-colors duration-200 focus:outline-none focus-visible:outline-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed'
 
     const variantStyles: Record<Variant, string> = {
       primary: `bg-button-primary text-white hover:bg-button-primary-hover focus:ring-button-primary-hover`,
@@ -50,24 +50,24 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       outline: `border border-${color} text-${color} hover:bg-${color} focus:ring-${color}`,
       danger: `bg-button-danger text-white hover:bg-button-danger-hover focus:ring-button-danger-hover`,
       custom: customVariantStyles,
-    };
+    }
 
     const sizeStyles: Record<Size, string> = {
-      small: "h-[40px] leading-[40px] text-xs",
-      medium: "h-[54px] leading-[54px] text-sm",
-      large: "h-[60x] leading-[60px] text-base",
-    };
+      small: 'h-[40px] leading-[40px] text-xs',
+      medium: 'h-[54px] leading-[54px] text-sm',
+      large: 'h-[60x] leading-[60px] text-base',
+    }
 
     const roundedStyles: Record<Rounded, string> = {
-      none: "rounded-none",
-      sm: "rounded-sm",
-      md: "rounded-md",
-      lg: "rounded-lg",
-      xl: "rounded-xl",
-      full: "rounded-full",
-    };
+      none: 'rounded-none',
+      sm: 'rounded-sm',
+      md: 'rounded-md',
+      lg: 'rounded-lg',
+      xl: 'rounded-xl',
+      full: 'rounded-full',
+    }
 
-    const blockStyle = fullWidth ? "w-full" : "";
+    const blockStyle = fullWidth ? 'w-full' : ''
 
     return (
       <button
@@ -78,14 +78,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           sizeStyles[size],
           roundedStyles[rounded],
           blockStyle,
-          className
+          className,
         )}
         disabled={disabled || loading}
         aria-disabled={disabled || loading}
         {...props}
       >
         {loading ? (
-          <Loader2 className="animate-spin w-4 h-4 mr-2" aria-hidden="true" />
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
         ) : (
           prefix && (
             <span className="mr-2" aria-hidden="true">
@@ -100,8 +100,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           </span>
         )}
       </button>
-    );
-  }
-);
+    )
+  },
+)
 
-Button.displayName = "Button";
+Button.displayName = 'Button'

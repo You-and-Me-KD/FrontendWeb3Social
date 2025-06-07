@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC } from 'react'
 
 const Decoration: FC = () => {
   return (
-    <div className="bg-background bg-[url(/images/dot-texture.webp)] bg-repeat bg-[0_0] xl:block hidden w-[64%] h-[140%] rounded-[50%] xl:absolute -top-[20%] -right-[30%] pointer-events-none"></div>
-  );
-};
+    <div className="bg-background pointer-events-none -top-[20%] -right-[30%] hidden h-[140%] w-[64%] rounded-[50%] bg-[0_0] bg-[url(/images/dot-texture.webp)] bg-repeat xl:absolute xl:block"></div>
+  )
+}
 
-export default Decoration;
+export default Decoration

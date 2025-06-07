@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export const TwitterIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
@@ -18,5 +18,5 @@ export const TwitterIcon = (props: React.SVGProps<SVGSVGElement>) => {
         clipRule="evenodd"
       ></path>
     </svg>
-  );
-};
+  )
+}

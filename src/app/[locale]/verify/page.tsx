@@ -1,5 +1,5 @@
-import VerifyPage from "@/modules/VerifyPage/VerifyPage";
+import VerifyPage from '@/modules/VerifyPage/VerifyPage'
 
 export default function Verify() {
-  return <VerifyPage />;
+  return <VerifyPage />
 }

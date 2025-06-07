@@ -1,34 +1,24 @@
-import React, { forwardRef } from "react";
-import { Controller, useFormContext } from "react-hook-form";
-import { cn } from "@/libs/utils";
-import { Checkbox, CheckboxProps } from "../common";
-import useTranslations from "@/hooks/useTranslations";
+import React, { forwardRef } from 'react'
+import { Controller, useFormContext } from 'react-hook-form'
+import { cn } from '@/libs/utils'
+import { Checkbox, CheckboxProps } from '../common'
+import useTranslations from '@/hooks/useTranslations'
 
 type CheckboxFieldsProps = CheckboxProps & {
-  errorClassName?: string;
-};
+  errorClassName?: string
+}
 
 export const CheckboxFields = forwardRef<HTMLInputElement, CheckboxFieldsProps>(
   (
-    {
-      id,
-      name,
-      label,
-      checkboxSize = "medium",
-      color = "blue",
-      disabled = false,
-      rounded = "sm",
-      className,
-      ...props
-    },
-    ref
+    { id, name, label, checkboxSize = 'medium', color = 'blue', disabled = false, rounded = 'sm', className, ...props },
+    ref,
   ) => {
     const {
       control,
       formState: { errors },
-    } = useFormContext();
+    } = useFormContext()
 
-    const { t } = useTranslations();
+    const { t } = useTranslations()
 
     return (
       <div className="flex flex-col gap-1">
@@ -53,13 +43,13 @@ export const CheckboxFields = forwardRef<HTMLInputElement, CheckboxFieldsProps>(
           )}
         />
         {errors[name] && (
-          <span className="mt-2 text-sm text-danger">
-            {(errors[name]?.message as string) || t("validation.common")}
+          <span className="text-danger mt-2 text-sm">
+            {(errors[name]?.message as string) || t('validation.common')}
           </span>
         )}
       </div>
-    );
-  }
-);
+    )
+  },
+)
 
-CheckboxFields.displayName = "CheckboxFields";
+CheckboxFields.displayName = 'CheckboxFields'

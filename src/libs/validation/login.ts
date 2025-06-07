@@ -1,26 +1,24 @@
-import { z } from "zod";
-export const getLoginSchema = (t: Function) => {
+import { z } from 'zod'
+import { PASSWORD_REGEX } from './regex'
+import { TranslationFunction } from '@/hooks'
+export const getLoginSchema = (t: TranslationFunction) => {
   return z.object({
     email: z
       .string({
-        required_error: t("common.validation.required", {
-          field: t("common.fields.email"),
+        required_error: t('validation.required', {
+          field: t('fields.email'),
         }),
       })
-      .min(1, t("common.validation.required", { field: t("common.fields.email") })),
+      .email({
+        message: t('validation.emailInvalid'),
+      }),
     password: z
       .string({
-        required_error: t("common.validation.required", {
-          field: t("common.fields.password"),
+        required_error: t('validation.required', {
+          field: t('fields.password'),
         }),
       })
-      .min(
-        1,
-        t("common.validation.minlength", {
-          field: t("common.fields.password"),
-          min: 1,
-        })
-      ),
+      .regex(PASSWORD_REGEX, t('validation.passwordComplexity')),
     remember: z.boolean().optional(),
-  });
-};
+  })
+}

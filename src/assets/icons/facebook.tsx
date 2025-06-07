@@ -1,14 +1,8 @@
-import React from "react";
+import React from 'react'
 
 export const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      clipRule="evenodd"
-      fillRule="evenodd"
-      viewBox="0 0 560 400"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg clipRule="evenodd" fillRule="evenodd" viewBox="0 0 560 400" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="m410.096 200.048c0-71.818-58.23-130.048-130.048-130.048s-130.048 58.23-130.048 130.048c0 64.905 47.55 118.709 109.73 128.476v-90.875h-33.029v-37.601h33.029v-28.658c0-32.59 19.422-50.604 49.122-50.604 14.228 0 29.115 2.542 29.115 2.542v32.005h-16.405c-16.148 0-21.196 10.022-21.196 20.318v24.396h36.064l-5.761 37.601h-30.304v90.875c62.18-9.749 109.73-63.553 109.73-128.476z"
         fill="#1977f3"
@@ -18,5 +12,5 @@ export const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => {
         fill="#fefefe"
       />
     </svg>
-  );
-};
+  )
+}

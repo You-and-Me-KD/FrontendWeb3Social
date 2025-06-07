@@ -1,4 +1,4 @@
-import FormBox from "./FormBox";
-import LoadingAllPage from "./Loading";
+import FormBox from './FormBox'
+import LoadingAllPage from './Loading'
 
-export { FormBox, LoadingAllPage };
+export { FormBox, LoadingAllPage }

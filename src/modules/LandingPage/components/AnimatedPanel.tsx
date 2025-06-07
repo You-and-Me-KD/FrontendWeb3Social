@@ -1,11 +1,11 @@
-import { cn } from "@/libs/utils";
-import { motion } from "framer-motion";
-import React from "react";
+import { cn } from '@/libs/utils'
+import { motion } from 'framer-motion'
+import React from 'react'
 
 type AnimatedPanelProps = {
-  visible: boolean;
-  children: React.ReactNode;
-};
+  visible: boolean
+  children: React.ReactNode
+}
 
 const AnimatedPanel: React.FC<AnimatedPanelProps> = ({ visible, children }) => (
   <motion.div
@@ -16,12 +16,12 @@ const AnimatedPanel: React.FC<AnimatedPanelProps> = ({ visible, children }) => (
     }}
     initial={false}
     transition={{ duration: 1, ease: [0.25, 0.8, 0.25, 1] }}
-    className={cn("xl:absolute xl:right-20 2xl:right-[13%] max-w-full", {
+    className={cn('max-w-full xl:absolute xl:right-20 2xl:right-[13%]', {
       hidden: !visible,
     })}
   >
     {children}
   </motion.div>
-);
+)
 
-export default AnimatedPanel;
+export default AnimatedPanel

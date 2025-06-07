@@ -1,8 +1,8 @@
-"use client";
+'use client'
 
-import { FCC } from "@/types";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { memo, useMemo } from "react";
+import { FCC } from '@/types'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { memo, useMemo } from 'react'
 
 const ReactQueryProvider: FCC = ({ children }) => {
   const queryClient = useMemo(() => {
@@ -16,11 +16,9 @@ const ReactQueryProvider: FCC = ({ children }) => {
           staleTime: 1000 * 60 * 5,
         },
       },
-    });
-  }, []);
-  return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-  );
-};
+    })
+  }, [])
+  return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+}
 
-export default memo(ReactQueryProvider);
+export default memo(ReactQueryProvider)

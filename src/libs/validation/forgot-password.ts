@@ -1,12 +1,15 @@
-import { z } from "zod";
-export const getForgotPasswordSchema = (t: Function) => {
+import { TranslationFunction } from '@/hooks'
+import { z } from 'zod'
+export const getForgotPasswordSchema = (t: TranslationFunction) => {
   return z.object({
     email: z
       .string({
-        required_error: t("common.validation.required", {
-          field: t("common.fields.email"),
+        required_error: t('validation.required', {
+          field: t('fields.email'),
         }),
       })
-      .min(1, t("common.validation.required", { field: t("common.fields.email") })),
-  });
-};
+      .email({
+        message: t('validation.emailInvalid'),
+      }),
+  })
+}

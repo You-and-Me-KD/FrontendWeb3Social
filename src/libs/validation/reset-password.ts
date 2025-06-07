@@ -1,31 +1,32 @@
-import { z } from "zod";
-export const getResetPasswordSchema = (t: Function) => {
-  return z.object({
-    password: z
-      .string({
-        required_error: t("common.validation.required", {
-          field: t("common.fields.password"),
-        }),
-      })
-      .min(
-        8,
-        t("common.validation.minlength", {
-          field: t("common.fields.password"),
-          min: 8,
+import { z } from 'zod'
+import { PASSWORD_REGEX } from './regex'
+import { TranslationFunction } from '@/hooks'
+export const getResetPasswordSchema = (t: TranslationFunction) => {
+  return z
+    .object({
+      password: z
+        .string({
+          required_error: t('validation.required', {
+            field: t('fields.password'),
+          }),
         })
-      ),
-    confirmPassword: z
-      .string({
-        required_error: t("common.validation.required", {
-          field: t("common.fields.confirmPassword"),
-        }),
-      })
-      .min(
-        8,
-        t("common.validation.minlength", {
-          field: t("common.fields.confirmPassword"),
-          min: 8,
+        .regex(PASSWORD_REGEX, t('validation.passwordComplexity')),
+      confirmPassword: z
+        .string({
+          required_error: t('validation.required', {
+            field: t('fields.confirmPassword'),
+          }),
         })
-      ),
-  });
-};
+        .min(
+          1,
+          t('validation.required', {
+            field: t('fields.password'),
+            min: 1,
+          }),
+        ),
+    })
+    .refine((data) => data.password === data.confirmPassword, {
+      message: t('validation.passwordsDoNotMatch'),
+      path: ['confirmPassword'],
+    })
+}

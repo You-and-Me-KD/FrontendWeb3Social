@@ -1,46 +1,51 @@
-import { z } from 'zod';
-export const getRegisterSchema = (t: Function) => {
-  return z.object({
-    email: z
-      .string({
-        required_error: t('common.validation.required', {
-          field: t('common.fields.email'),
-        }),
-      })
-      .min(1, t('common.validation.required', { field: t('common.fields.email') })),
-    username: z
-      .string({
-        required_error: t('common.validation.required', {
-          field: t('common.fields.username'),
-        }),
-      })
-      .min(8, t('common.validation.required', { field: t('common.fields.username') })),
-    password: z
-      .string({
-        required_error: t('common.validation.required', {
-          field: t('common.fields.password'),
-        }),
-      })
-      .min(
-        8,
-        t('common.validation.minlength', {
-          field: t('common.fields.password'),
-          min: 8,
+import { z } from 'zod'
+import { PASSWORD_REGEX } from './regex'
+import { TranslationFunction } from '@/hooks'
+export const getRegisterSchema = (t: TranslationFunction) => {
+  return z
+    .object({
+      email: z
+        .string({
+          required_error: t('validation.required', {
+            field: t('fields.email'),
+          }),
         })
-      ),
-    confirmPassword: z
-      .string({
-        required_error: t('common.validation.required', {
-          field: t('common.fields.confirmPassword'),
+        .email({
+          message: t('validation.emailInvalid'),
         }),
-      })
-      .min(
-        8,
-        t('common.validation.minlength', {
-          field: t('common.fields.confirmPassword'),
-          min: 8,
+      username: z
+        .string({
+          required_error: t('validation.required', {
+            field: t('fields.username'),
+          }),
         })
-      ),
-    isGetNewByMail: z.boolean().optional(),
-  });
-};
+        .min(6, t('validation.minlength', { field: t('fields.username'), min: 6 }))
+        .max(20, t('validation.maxlength', { field: t('fields.username'), max: 20 })),
+      password: z
+        .string({
+          required_error: t('validation.required', {
+            field: t('fields.password'),
+          }),
+        })
+        .regex(PASSWORD_REGEX, t('validation.passwordComplexity')),
+      remember: z.boolean().optional(),
+      confirmPassword: z
+        .string({
+          required_error: t('validation.required', {
+            field: t('fields.confirmPassword'),
+          }),
+        })
+        .min(
+          1,
+          t('validation.required', {
+            field: t('fields.password'),
+            min: 1,
+          }),
+        ),
+      isGetNewByMail: z.boolean().optional(),
+    })
+    .refine((data) => data.password === data.confirmPassword, {
+      message: t('validation.passwordsDoNotMatch'),
+      path: ['confirmPassword'],
+    })
+}
