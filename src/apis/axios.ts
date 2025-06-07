@@ -4,7 +4,7 @@ import axios, { AxiosError, AxiosResponse } from 'axios'
 
 // Make it to custom for microservices request from BE
 const createAxiosInstance = (baseURL: string) => {
-  const instance = axios.create({ baseURL })
+  const instance = axios.create({ baseURL, withCredentials: true })
 
   const handleSuccess = (response: AxiosResponse) => {
     return response.data
@@ -12,7 +12,6 @@ const createAxiosInstance = (baseURL: string) => {
 
   const handleError = (error: AxiosError) => {
     const originalError = error.response!.data as IAxiosResponse
-    console.log(originalError, 'originalError')
     return Promise.reject(originalError || error)
   }
 
