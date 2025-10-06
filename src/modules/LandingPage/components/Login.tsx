@@ -38,6 +38,7 @@ const Login: FC = () => {
             label: t('toast.success.login'),
             description: t('success.LOGIN_SUCCESS'),
           })
+          router.push(RouteEnum.HOME)
         },
         onError: async (error: IAxiosResponse) => {
           const text = await getErrorMessage(error?.meta.message)
@@ -89,7 +90,7 @@ const Login: FC = () => {
               color="green"
               rounded="md"
             />
-            <button className="text-main-2 cursor-pointer font-bold" onClick={handleForgot}>
+            <button type="button" className="text-main-2 cursor-pointer font-bold" onClick={handleForgot}>
               {tLogin('form.forgot')}
             </button>
           </div>

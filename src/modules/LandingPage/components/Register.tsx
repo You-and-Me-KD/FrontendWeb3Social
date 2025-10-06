@@ -50,7 +50,7 @@ const Register: FC = () => {
           })
         },
         onError: async (error: IAxiosResponse) => {
-          const text = await getErrorMessage(error?.meta.message)
+          const text = await getErrorMessage(error?.meta?.message)
 
           Toast.error({
             label: t('toast.error.register'),

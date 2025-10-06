@@ -1,3 +1,4 @@
+'use client'
 import { cn } from '@/libs/utils'
 import { motion } from 'framer-motion'
 import React from 'react'

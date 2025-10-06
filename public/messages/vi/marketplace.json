@@ -1,0 +1,11 @@
+{
+  "categories": {
+    "title": "Market Categories",
+    "description": "Search what you want!"
+  },
+  "latest-items": {
+    "title": "Latest Items",
+    "description": "See what's new!",
+    "browse-all": "Browse All Latest"
+  }
+}

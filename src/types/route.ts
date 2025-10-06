@@ -5,4 +5,11 @@ export enum RouteEnum {
   VERIFY = '/verify',
   RESEND_EMAIL = '/resend-email',
   FORGOT_PASSWORD = '/forgot-password',
+  CARREERS = '/carrers',
+  FAQS = '/faqs',
+  NEWFEED = '/newfeed',
+  ABOUT_US = '/about-us',
+  OUR_BLOG = '/our-blog',
+  CONTACT_US = '/contact-us',
+  PRIVACY_POLICY = '/privacy-policy',
 }
