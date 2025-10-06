@@ -1,7 +1,33 @@
 {
   "common": {
     "title": "WEB3GERS",
-    "loading": "LOADING..."
+    "loading": "LOADING...",
+    "home": "Home",
+    "carrers": "Carrers",
+    "faqs": "Faqs",
+    "about-us": "About Us",
+    "our-blog": "Our Blog",
+    "contact-us": "Contact Us",
+    "privacy-policy": "Privacy Policy",
+    "search-placeholder": "Search here for people or groups",
+    "next": "Next",
+    "exp": "EXP",
+    "marketplace": "Marketplace",
+    "overview": "Overview",
+    "group": "Group",
+    "member": "Member",
+    "badge": "Badge",
+    "quest": "Quest",
+    "stream": "Stream",
+    "event": "Event",
+    "forum": "Forum",
+    "newsfeed": "Newsfeed"
+  },
+  "banner": {
+    "marketplace": {
+      "title": "Marketplace",
+      "description": "The best place for the community to buy and sell!"
+    }
   },
   "validation": {
     "common": "This field is invalid",
@@ -66,6 +92,7 @@
     "EMAIL_USERNAME_ALREADY_EXISTS": "The email or username is already registered. Please use a different one.",
     "VERIFY_EMAIL_FAILED": "Something went wrong while verifying your email. Please try again later.",
     "TOO_MANY_REQUESTS_SEND_EMAIL": "Too many requests. Please wait a while before trying to resend the verification email.",
-    "jwt expired": "Your session has expired. Please try it again."
+    "jwt expired": "Your session has expired. Please try it again.",
+    "CREDENTIAL_NOT_MATCH": "The email or password you entered is incorrect. Please try again."
   }
 }

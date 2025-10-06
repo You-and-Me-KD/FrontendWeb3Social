@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --font-rajdhani-sans: Rajdhani, sans-serif;
@@ -47,17 +47,30 @@
   --input-border-primary-focus: #7750f8;
   --input-placeholder-primary: #9aa4bf;
 
+  --header-bg: #7750f8;
   /* custom-proerty */
   /* color */
   --main-1: #1d2333;
   --main-2: #adafca;
   --main-3: #2f3749;
   --main-4: #3763d2;
+  --main-5: #4ff461;
+  --main-6: #5538b5;
+  --main-7: #293249;
+  --main-8: #9aa4bf;
+  --main-9: #8560ff;
+  --main-10: #21283b;
   /* shadow */
-  --shadow-1: 0 0 60px 0 rgba(0, 0, 0, 0.12);
+  --shadow-1: 0 0 40px 0 rgba(0, 0, 0, 0.06);
 
   /* loader */
   --loader-bg-color: #1d2333;
+
+  --icon-color: #9b7dff;
+
+  /* Tooltip and Popover colors */
+  --popover: #7750f8;
+  --popover-foreground: white;
 }
 
 @theme {
@@ -66,7 +79,9 @@
   --breakpoint-md: 48rem; /* 768px */
   --breakpoint-lg: 62rem; /* 992px */
   --breakpoint-xl: 75rem; /* 1200px */
+  --breakpoint-sxl: 87.5rem; /* 1400px */
   --breakpoint-2xl: 93.75rem; /* 1500px */
+  --text-xxs: 0.625rem; /* 10px */
   --text-xs: 0.75rem; /* 12px */
   --text-sm: 0.875rem; /* 14px */
   --text-base: 1rem; /* 16px */
@@ -93,6 +108,8 @@
   --radius-7xl: 1.75rem; /* 28px */
   --radius-8xl: 2rem; /* 32px */
   --radius-9xl: 2.5rem; /* 40px */
+  --header-height: 80px;
+  --sidebar-width: 80px;
 }
 
 @theme inline {
@@ -143,8 +160,19 @@
   --color-main-2: var(--main-2);
   --color-main-3: var(--main-3);
   --color-main-4: var(--main-4);
+  --color-main-5: var(--main-5);
+  --color-main-6: var(--main-6);
+  --color-main-7: var(--main-7);
+  --color-main-8: var(--main-8);
+  --color-main-9: var(--main-9);
+  --color-main-10: var(--main-10);
+
   --color-shadow-1: var(--shadow-1);
   --color-loader-bg: var(--loader-bg-color);
+  --color-header-bg: var(--header-bg);
+  --color-icon-color: var(--icon-color);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -177,4 +205,128 @@ body {
 
 img {
   user-select: none;
+}
+
+@keyframes tooltip-fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tooltip-fade-out-up {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes tooltip-fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tooltip-fade-out-down {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes tooltip-fade-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes tooltip-fade-out-right {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+}
+
+@keyframes tooltip-fade-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes tooltip-fade-out-left {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+}
+
+.animate-tooltip-slide-in {
+  animation: tooltip-fade-in-down 0.3s ease-out forwards;
+}
+
+.animate-tooltip-slide-out {
+  animation: tooltip-fade-out-up 0.2s ease-in forwards;
+}
+
+.animate-tooltip-slide-in-up {
+  animation: tooltip-fade-in-up 0.3s ease-out forwards;
+}
+
+.animate-tooltip-slide-out-down {
+  animation: tooltip-fade-out-down 0.2s ease-in forwards;
+}
+
+.animate-tooltip-slide-in-left {
+  animation: tooltip-fade-in-left 0.3s ease-out forwards;
+}
+
+.animate-tooltip-slide-out-right {
+  animation: tooltip-fade-out-right 0.2s ease-in forwards;
+}
+
+.animate-tooltip-slide-in-right {
+  animation: tooltip-fade-in-right 0.3s ease-out forwards;
+}
+
+.animate-tooltip-slide-out-left {
+  animation: tooltip-fade-out-left 0.2s ease-in forwards;
+}
+
+.clip-hexagon {
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
 }

@@ -7,7 +7,10 @@
     "common": "This field is invalid",
     "required": "{field} is required",
     "minlength": "{field} must be at least {min} characters",
-    "maxlength": "{field} must be at most {max} characters"
+    "maxlength": "{field} must be at most {max} characters",
+    "passwordComplexity": "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
+    "emailInvalid": "Please enter a valid email address",
+    "passwordsDoNotMatch": "Passwords do not match"
   },
   "fields": {
     "username-or-email": "Username or Email",
@@ -21,13 +24,17 @@
       "login": "Login successfully!",
       "register": "Registration successful!",
       "verify-success": "Email verification successful!",
-      "resend-email": "Verification email resent successfully!"
+      "resend-email": "Verification email resent successfully!",
+      "forgot-password": "Forgot password successfully!",
+      "reset-password": "Reset password successfully!"
     },
     "error": {
       "login": "Login failed!",
       "register": "Registration failed!",
       "verify-error": "Email verification failed!",
-      "resend-email-error": "Failed to resend verification email!"
+      "resend-email-error": "Failed to resend verification email!",
+      "forgot-password-error": "Failed to send forgot password email!",
+      "reset-password-error": "Failed to reset password!"
     }
   },
   "success": {
@@ -35,7 +42,9 @@
     "REGISTER_SUCCESS": "Registration successful. Please check your email to verify your account.",
     "PASSWORD_RESET_SUCCESS": "Password reset link has been sent to your email.",
     "EMAIL_VERIFICATION_SUCCESS": "You can now log in.",
-    "RESEND_EMAIL_SUCCESS": "Verification email has been resent. Please check your inbox."
+    "RESEND_EMAIL_SUCCESS": "Verification email has been resent. Please check your inbox.",
+    "FORGOT_PASSWORD_SUCCESS": "Password reset link has been sent to your email. Please check your inbox.",
+    "RESET_PASSWORD_SUCCESS": "Your password has been reset successfully. You can now log in with your new password."
   },
   "error": {
     "NOT_FOUND": "Something went wrong.<br /> Please try login again later.",
@@ -56,6 +65,8 @@
     "AT_LEAST_ONE_SPECIAL_CHARACTER": "Password must contain at least one special character.",
     "EMAIL_USERNAME_ALREADY_EXISTS": "The email or username is already registered. Please use a different one.",
     "VERIFY_EMAIL_FAILED": "Something went wrong while verifying your email. Please try again later.",
-    "TOO_MANY_REQUESTS_SEND_EMAIL": "Too many requests. Please wait a while before trying to resend the verification email."
+    "TOO_MANY_REQUESTS_SEND_EMAIL": "Too many requests. Please wait a while before trying to resend the verification email.",
+    "jwt expired": "Your session has expired. Please try it again.",
+    "CREDENTIAL_NOT_MATCH": "The email or password you entered is incorrect. Please try again."
   }
 }

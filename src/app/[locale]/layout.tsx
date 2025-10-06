@@ -46,7 +46,7 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <NextIntlClientProvider>
         <ReactQueryProvider>
-          <body className={`${fontSans.variable} ${fontSans2} antialiased`}>
+          <body className={`${fontSans.variable} ${fontSans2.variable} antialiased`}>
             <LayoutProvider>{children}</LayoutProvider>
           </body>
         </ReactQueryProvider>
