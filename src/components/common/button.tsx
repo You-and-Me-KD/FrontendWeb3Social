@@ -8,7 +8,7 @@ type Rounded = NonNullable<ButtonProps['rounded']>
 
 export type ButtonProps = {
   children: React.ReactNode
-  variant?: 'primary' | 'secondary' | 'ghost' | 'outline' | 'danger' | 'custom'
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline' | 'danger' | 'custom' | 'transparent'
   size?: 'small' | 'medium' | 'large'
   color?: 'blue' | 'gray' | 'red' | 'green' | 'purple' | string
   loading?: boolean
@@ -49,6 +49,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       ghost: `bg-transparent text-white hover:bg-button-ghost-hover focus:ring-button-ghost-hover`,
       outline: `border border-${color} text-${color} hover:bg-${color} focus:ring-${color}`,
       danger: `bg-button-danger text-white hover:bg-button-danger-hover focus:ring-button-danger-hover`,
+      transparent: `bg-transparent text-white hover:bg-button-transparent-hover focus:ring-button-transparent-hover`,
       custom: customVariantStyles,
     }
 

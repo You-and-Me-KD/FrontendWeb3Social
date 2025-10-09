@@ -27,6 +27,10 @@
     "marketplace": {
       "title": "Marketplace",
       "description": "The best place for the community to buy and sell!"
+    },
+    "marketplace-category": {
+      "title": "Marketplace Category",
+      "description": "The best place for the community to buy and sell!"
     }
   },
   "validation": {

@@ -6,6 +6,7 @@ interface CircularProgressProps {
   level?: number
   value: number
   size?: number
+  imageUrl?: string
   strokeWidth?: number
   className?: string
   indicatorClassName?: string
@@ -18,6 +19,7 @@ const CircularProgress = ({
   level = 1,
   value,
   size = 120,
+  imageUrl,
   strokeWidth = 8,
   className,
   indicatorClassName,
@@ -54,7 +56,7 @@ const CircularProgress = ({
           transform={`rotate(-90 ${size / 2} ${size / 2})`}
         />
         <image
-          href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGEZghB-stFaphAohNqDAhEaXOWQJ9XvHKJw&s"
+          href={imageUrl}
           x={strokeWidth}
           y={strokeWidth}
           width={size - strokeWidth * 2}
