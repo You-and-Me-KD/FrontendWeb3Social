@@ -3,16 +3,14 @@ import Link from 'next/link'
 import { categories } from './mocks'
 import { ICategoryItem } from './types'
 import useTranslations from '@/hooks/useTranslations'
+import { Title } from '@/components/ui/Title'
 
 const Categories = () => {
   const { t } = useTranslations('marketplace')
   return (
     <VStack align="start" justify="start" className="w-full">
-      <VStack align="start" justify="start" spacing={0}>
-        <p className="text-main-8 text-xs font-bold uppercase">{t('categories.description')}</p>
-        <h1 className="text-2xl font-bold">{t('categories.title')}</h1>
-      </VStack>
-      <div className="mt-4 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+      <Title title={t('categories.title')} description={t('categories.description')} />
+      <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
         {categories.map((category) => (
           <CategoryItem key={category.name} {...category} />
         ))}

@@ -1,0 +1,18 @@
+{
+  "filter": {
+    "browse-products": "Browse Products",
+    "digital-items": "Digital Items",
+    "marketplace": "Marketplace",
+    "search-placeholder": "Search Items",
+    "apply-filters": "Apply Filters",
+    "filter-by": "Filter By",
+    "order-by": "Order By",
+    "files-include": "Files Include",
+    "categories": "Categories",
+    "price-range": "Price Range",
+    "from": "From",
+    "to": "To",
+    "reviews": "Reviews",
+    "all-reviews": "All Reviews"
+  }
+}

@@ -7,7 +7,7 @@ type Rounded = NonNullable<InputProps['rounded']>
 
 export type InputProps = {
   variant?: 'primary' | 'secondary' | 'custom'
-  inputSize?: 'small' | 'medium' | 'large'
+  inputSize?: 'small' | 'medium' | 'x-medium' | 'large'
   color?: 'blue' | 'gray' | 'red' | 'green' | 'purple' | string
   disabled?: boolean
   prefix?: React.ReactNode
@@ -48,6 +48,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     const sizeStyles: Record<InputSize, string> = {
       small: 'h-[40px] text-sm px-3',
+      'x-medium': 'h-[48px] text-sm px-[18px]',
       medium: 'h-[54px] text-base px-[18px]',
       large: 'h-[60px] text-lg px-5',
     }

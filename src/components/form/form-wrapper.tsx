@@ -1,3 +1,5 @@
+'use client'
+
 import { FieldValues, FormProvider, SubmitHandler, UseFormReturn } from 'react-hook-form'
 
 export interface FormWrapperProps<T extends FieldValues> {

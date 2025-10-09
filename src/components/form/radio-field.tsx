@@ -3,18 +3,15 @@
 import React, { forwardRef } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
 import { cn } from '@/libs/utils'
-import { Checkbox, CheckboxProps } from '../common'
+import { Radio, RadioProps } from '../common'
 import useTranslations from '@/hooks/useTranslations'
 
-type CheckboxFieldsProps = CheckboxProps & {
+type RadioFieldsProps = RadioProps & {
   errorClassName?: string
 }
 
-export const CheckboxFields = forwardRef<HTMLInputElement, CheckboxFieldsProps>(
-  (
-    { id, name, label, checkboxSize = 'medium', color = 'blue', disabled = false, rounded = 'sm', className, ...props },
-    ref,
-  ) => {
+export const RadioFields = forwardRef<HTMLInputElement, RadioFieldsProps>(
+  ({ id, name, value, label, radioSize = 'medium', color = 'blue', disabled = false, className, ...props }, ref) => {
     const {
       control,
       formState: { errors },
@@ -28,17 +25,17 @@ export const CheckboxFields = forwardRef<HTMLInputElement, CheckboxFieldsProps>(
           name={name}
           control={control}
           render={({ field }) => (
-            <Checkbox
+            <Radio
               ref={ref}
               id={id}
               name={name}
+              value={value}
               label={label}
-              checked={field.value ?? false}
+              checked={field.value === value}
               onChange={field.onChange}
-              checkboxSize={checkboxSize}
+              radioSize={radioSize}
               color={color}
               disabled={disabled}
-              rounded={rounded}
               className={cn(className)}
               {...props}
             />
@@ -54,4 +51,4 @@ export const CheckboxFields = forwardRef<HTMLInputElement, CheckboxFieldsProps>(
   },
 )
 
-CheckboxFields.displayName = 'CheckboxFields'
+RadioFields.displayName = 'RadioFields'

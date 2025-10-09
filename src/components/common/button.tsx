@@ -9,7 +9,7 @@ type Rounded = NonNullable<ButtonProps['rounded']>
 export type ButtonProps = {
   children: React.ReactNode
   variant?: 'primary' | 'secondary' | 'ghost' | 'outline' | 'danger' | 'custom' | 'transparent'
-  size?: 'small' | 'medium' | 'large'
+  size?: 'small' | 'medium' | 'x-medium' | 'large'
   color?: 'blue' | 'gray' | 'red' | 'green' | 'purple' | string
   loading?: boolean
   disabled?: boolean
@@ -55,6 +55,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const sizeStyles: Record<Size, string> = {
       small: 'h-[40px] leading-[40px] text-xs',
+      'x-medium': 'h-[48px] leading-[48px] text-sm',
       medium: 'h-[54px] leading-[54px] text-sm',
       large: 'h-[60x] leading-[60px] text-base',
     }
