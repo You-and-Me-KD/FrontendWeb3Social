@@ -31,6 +31,10 @@
     "marketplace-category": {
       "title": "Marketplace Category",
       "description": "The best place for the community to buy and sell!"
+    },
+    "mint-nft": {
+      "title": "Mint Your Own NFT",
+      "description": "The best place for the community to buy and sell!"
     }
   },
   "validation": {

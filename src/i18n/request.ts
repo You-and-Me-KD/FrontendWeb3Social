@@ -6,18 +6,21 @@ export default getRequestConfig(async ({ requestLocale }) => {
   // Typically corresponds to the `[locale]` segment
   const requested = await requestLocale
   const locale = hasLocale(routing.locales, requested) ? requested : routing.defaultLocale
-  const [login, common, register, marketplace, marketplaceCategory, resend, forgot, reset] = await Promise.all([
-    import(`../../public/messages/${locale}/login.json`).then((m) => m.default),
-    import(`../../public/messages/${locale}/common.json`).then((m) => m.default),
-    import(`../../public/messages/${locale}/register.json`).then((m) => m.default),
-    import(`../../public/messages/${locale}/marketplace.json`).then((m) => m.default),
-    import(`../../public/messages/${locale}/marketplace-category.json`).then((m) => m.default),
-    import(`../../public/messages/${locale}/resend.json`).then((m) => m.default),
-    import(`../../public/messages/${locale}/forgot-password.json`).then((m) => m.default),
-    import(`../../public/messages/${locale}/reset-password.json`).then((m) => m.default),
-  ])
+  const [login, common, register, marketplace, marketplaceCategory, resend, forgot, reset, mintNFT] = await Promise.all(
+    [
+      import(`../../public/messages/${locale}/login.json`).then((m) => m.default),
+      import(`../../public/messages/${locale}/common.json`).then((m) => m.default),
+      import(`../../public/messages/${locale}/register.json`).then((m) => m.default),
+      import(`../../public/messages/${locale}/marketplace.json`).then((m) => m.default),
+      import(`../../public/messages/${locale}/marketplace-category.json`).then((m) => m.default),
+      import(`../../public/messages/${locale}/resend.json`).then((m) => m.default),
+      import(`../../public/messages/${locale}/forgot-password.json`).then((m) => m.default),
+      import(`../../public/messages/${locale}/reset-password.json`).then((m) => m.default),
+      import(`../../public/messages/${locale}/mint-nft.json`).then((m) => m.default),
+    ],
+  )
   return {
     locale: 'en',
-    messages: { login, common, register, marketplace, marketplaceCategory, resend, forgot, reset },
+    messages: { login, common, register, marketplace, marketplaceCategory, resend, forgot, reset, mintNFT },
   }
 })

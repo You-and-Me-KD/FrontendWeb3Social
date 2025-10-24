@@ -1,0 +1,25 @@
+{
+  "create-nft": {
+    "title": "NFT Details",
+    "name": "Name",
+    "price": "Price",
+    "description": "Description",
+    "category": "Category",
+    "image": "Image",
+    "attributes": "Attributes",
+    "create": "Create NFT",
+    "remarks": "Remarks",
+    "type": "Type",
+    "start-date": "Start Date",
+    "end-date": "End Date",
+    "chain": "Chain",
+    "nft-summary": "NFT Summary",
+    "fee": "Fee",
+    "total-price": "Total Price",
+    "mint": "Create NFT"
+  },
+  "title": {
+    "your-nft": "Your NFTs",
+    "mint": "Create Your Own NFT"
+  }
+}

@@ -1,4 +1,6 @@
 export * from './checkbox-field'
 export * from './radio-field'
 export * from './input-field'
+export * from './textarea-field'
+export * from './select-field'
 export { default as FormWrapper } from './form-wrapper'
