@@ -18,8 +18,8 @@ const CheckoutSummary = () => {
       <VStack spacing={16} align="start" className="w-full">
         {INITIAL_CART_ITEMS.map((item) => (
           <HStack key={item.id} pos="apart" align="start" className="w-full" spacing={16}>
-            <VStack spacing={2} align="start" className="min-w-0">
-              <span className="truncate text-sm font-bold text-white">{item.name}</span>
+            <VStack spacing={2} className="min-w-0 flex-1">
+              <span className="w-full truncate text-sm font-bold text-white">{item.name}</span>
               <span className="text-main-2 text-xs font-medium capitalize">{item.license} License</span>
             </VStack>
             <span className="shrink-0 text-sm font-bold text-white">
