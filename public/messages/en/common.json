@@ -52,6 +52,10 @@
     "cart": {
       "title": "Shopping Cart",
       "description": "Browse your cart and checkout!"
+    },
+    "checkout": {
+      "title": "Checkout",
+      "description": "Your Order"
     }
   },
   "validation": {

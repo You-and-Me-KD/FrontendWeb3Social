@@ -1,4 +1,7 @@
+'use client'
+
 import { Button, HStack, Separator, VStack } from '@/components/common'
+import { useRouter } from '@/i18n/navigation'
 
 interface OrderSummaryProps {
   itemCount: number
@@ -8,6 +11,8 @@ interface OrderSummaryProps {
 }
 
 const OrderSummary = ({ itemCount, subtotal, discount, total }: OrderSummaryProps) => {
+  const router = useRouter()
+
   return (
     <VStack spacing={24} align="start" className="bg-main-1 h-fit w-full rounded-2xl p-4 xl:p-7">
       <span className="text-sm font-bold text-white">Order Totals</span>
@@ -33,7 +38,7 @@ const OrderSummary = ({ itemCount, subtotal, discount, total }: OrderSummaryProp
         </HStack>
       </VStack>
 
-      <Button variant="primary" size="x-medium" rounded="xl" fullWidth>
+      <Button variant="primary" size="x-medium" rounded="xl" fullWidth onClick={() => router.push('/checkout')}>
         Proceed to Checkout
       </Button>
       <Button
