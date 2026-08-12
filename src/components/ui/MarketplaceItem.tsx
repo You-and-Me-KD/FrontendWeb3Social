@@ -19,7 +19,7 @@ interface MarketplaceItemProps {
 export const MarketplaceItem = ({ name, price, image, category, description, author }: MarketplaceItemProps) => {
   const { t } = useTranslations('marketplace')
   return (
-    <Link href="/" className="col-span-1">
+    <Link href="/marketplace-item" className="col-span-1">
       <VStack className="shadow-shadow-1 w-full overflow-hidden rounded-2xl" spacing={0}>
         <HStack className="h-45 w-full" style={{ background: `url(${image}) no-repeat center/cover` }}></HStack>
         <VStack className="bg-main-1 relative p-4 xl:p-7" spacing={0}>

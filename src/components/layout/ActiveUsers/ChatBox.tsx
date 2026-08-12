@@ -10,7 +10,7 @@ import { IActiveUserProps } from './mock'
 
 interface ChatBoxProps {
   user: IActiveUserProps
-  onBack: () => void
+  onBack?: () => void
 }
 
 export const ChatBox = ({ user, onBack }: ChatBoxProps) => {
@@ -22,9 +22,11 @@ export const ChatBox = ({ user, onBack }: ChatBoxProps) => {
   return (
     <div className="flex h-full flex-col">
       <HStack spacing={12} align="center" className="px-5 py-4" noWrap>
-        <button onClick={onBack} className="text-main-2 cursor-pointer hover:text-white" aria-label="Back">
-          <ArrowLeftIcon size={20} />
-        </button>
+        {onBack && (
+          <button onClick={onBack} className="text-main-2 cursor-pointer hover:text-white" aria-label="Back">
+            <ArrowLeftIcon size={20} />
+          </button>
+        )}
         <div className="relative shrink-0">
           <Avatar src={user.avatar} alt={user.name} width={44} height={44} />
           <span className="text-xxs absolute -top-1 -left-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#7750f8] font-bold text-white">

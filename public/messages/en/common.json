@@ -13,6 +13,7 @@
     "next": "Next",
     "exp": "EXP",
     "marketplace": "Marketplace",
+    "messages": "Messages",
     "overview": "Overview",
     "group": "Group",
     "member": "Member",
@@ -39,6 +40,18 @@
     "new-feed": {
       "title": "New Feed",
       "description": "The best place for the community to buy and sell!"
+    },
+    "messages": {
+      "title": "Messages",
+      "description": "Chat with your friends and community members"
+    },
+    "marketplace-item": {
+      "title": "Marketplace Item",
+      "description": "The best place for the community to buy and sell!"
+    },
+    "cart": {
+      "title": "Shopping Cart",
+      "description": "Browse your cart and checkout!"
     }
   },
   "validation": {

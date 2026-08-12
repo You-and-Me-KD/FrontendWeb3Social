@@ -5,6 +5,7 @@ import {
   GroupIcon,
   MarketplaceIcon,
   MemberIcon,
+  MessageIcon,
   NewfeedIcon,
   OverviewIcon,
   QuestIcon,
@@ -16,6 +17,11 @@ export const sidebarItems = [
     icon: <NewfeedIcon />,
     label: 'common.newsfeed',
     href: '/new-feed',
+  },
+  {
+    icon: <MessageIcon />,
+    label: 'common.messages',
+    href: '/messages',
   },
   {
     icon: <OverviewIcon />,
