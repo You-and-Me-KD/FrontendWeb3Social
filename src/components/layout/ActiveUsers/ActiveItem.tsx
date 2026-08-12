@@ -6,13 +6,17 @@ import { IActiveUserProps } from './mock'
 interface ActiveItemProps {
   data: IActiveUserProps
   isExpanded?: boolean
+  onClick?: () => void
 }
 
-export const ActiveItem = ({ data, isExpanded = false }: ActiveItemProps) => {
+export const ActiveItem = ({ data, isExpanded = false, onClick }: ActiveItemProps) => {
   return (
-    <div className="hover:bg-main-3 flex w-full cursor-pointer items-center gap-3 px-5 py-3 transition-colors duration-200">
+    <div
+      className="hover:bg-main-3 flex w-full cursor-pointer items-center gap-3 px-5 py-3 transition-colors duration-200"
+      onClick={onClick}
+    >
       <div className="flex flex-shrink-0 items-center justify-center">
-        <CircularProgress value={data.progress} imageUrl={data.avatar} size={44} strokeWidth={4} />
+        <CircularProgress value={data.progress} level={data.level} imageUrl={data.avatar} size={44} strokeWidth={4} />
       </div>
       <div
         className={cn(
