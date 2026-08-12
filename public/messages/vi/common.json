@@ -1,7 +1,45 @@
 {
   "common": {
-    "title": "WEB3GERS",
-    "loading": "LOADING..."
+    "title": "WEB2GERS",
+    "loading": "LOADING...",
+    "home": "Home",
+    "carrers": "Carrers",
+    "faqs": "Faqs",
+    "about-us": "About Us",
+    "our-blog": "Our Blog",
+    "contact-us": "Contact Us",
+    "privacy-policy": "Privacy Policy",
+    "search-placeholder": "Search here for people or groups",
+    "next": "Next",
+    "exp": "EXP",
+    "marketplace": "Marketplace",
+    "overview": "Overview",
+    "group": "Group",
+    "member": "Member",
+    "badge": "Badge",
+    "quest": "Quest",
+    "stream": "Stream",
+    "event": "Event",
+    "forum": "Forum",
+    "newsfeed": "Newsfeed"
+  },
+  "banner": {
+    "marketplace": {
+      "title": "Marketplace",
+      "description": "The best place for the community to buy and sell!"
+    },
+    "marketplace-category": {
+      "title": "Marketplace Category",
+      "description": "The best place for the community to buy and sell!"
+    },
+    "mint-nft": {
+      "title": "Mint Your Own NFT",
+      "description": "The best place for the community to buy and sell!"
+    },
+    "new-feed": {
+      "title": "New Feed",
+      "description": "The best place for the community to buy and sell!"
+    }
   },
   "validation": {
     "common": "This field is invalid",

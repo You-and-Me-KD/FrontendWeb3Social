@@ -1,6 +1,6 @@
 {
   "common": {
-    "title": "WEB3GERS",
+    "title": "WEB2GERS",
     "loading": "LOADING...",
     "home": "Home",
     "carrers": "Carrers",
@@ -34,6 +34,10 @@
     },
     "mint-nft": {
       "title": "Mint Your Own NFT",
+      "description": "The best place for the community to buy and sell!"
+    },
+    "new-feed": {
+      "title": "New Feed",
       "description": "The best place for the community to buy and sell!"
     }
   },

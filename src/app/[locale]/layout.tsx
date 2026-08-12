@@ -23,9 +23,9 @@ const fontSans2 = Titillium_Web({
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: 'Web3s Social',
-    description: 'Social network with web3 features',
-    keywords: 'Web3, social network, decentralized, blockchain, community',
+    title: 'Web2s Social',
+    description: 'Social network with web2 features',
+    keywords: 'Web2, social network, decentralized, blockchain, community',
   }
 }
 export default async function LocaleLayout({

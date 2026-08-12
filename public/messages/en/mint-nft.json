@@ -6,6 +6,7 @@
     "description": "Description",
     "category": "Category",
     "image": "Image",
+    "image-description": "Recommanded resolution is 640*640 with file size less than 2MB, keep visual elements centered",
     "attributes": "Attributes",
     "create": "Create NFT",
     "remarks": "Remarks",
@@ -16,7 +17,9 @@
     "nft-summary": "NFT Summary",
     "fee": "Fee",
     "total-price": "Total Price",
-    "mint": "Create NFT"
+    "mint": "Create NFT",
+    "is-sales": "Is Sales",
+    "total-supply": "Total Supply"
   },
   "title": {
     "your-nft": "Your NFTs",
