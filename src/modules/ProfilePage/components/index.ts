@@ -1,0 +1,8 @@
+export { default as ProfileHeader } from './ProfileHeader'
+export { default as ProfileTabs } from './ProfileTabs'
+export { default as AboutMe } from './AboutMe'
+export { default as PersonalInfo } from './PersonalInfo'
+export { default as Interests } from './Interests'
+export { default as JobsEducation } from './JobsEducation'
+export { default as ProfileCompletion } from './ProfileCompletion'
+export { default as MoreStats } from './MoreStats'

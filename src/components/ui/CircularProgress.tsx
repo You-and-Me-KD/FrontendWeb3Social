@@ -1,5 +1,6 @@
 'use client'
 
+import { useId } from 'react'
 import { cn } from '@/libs'
 
 interface CircularProgressProps {
@@ -12,6 +13,7 @@ interface CircularProgressProps {
   indicatorClassName?: string
   trackClassName?: string
   showPercentage?: boolean
+  showLevelBadge?: boolean
   children?: React.ReactNode
 }
 
@@ -25,15 +27,17 @@ const CircularProgress = ({
   indicatorClassName,
   trackClassName,
   showPercentage = false,
+  showLevelBadge = true,
   children,
 }: CircularProgressProps) => {
+  const clipId = useId()
   const radius = (size - strokeWidth) / 2
   const circumference = radius * 2 * Math.PI
   const strokeDashoffset = circumference - (value / 100) * circumference
 
   return (
     <div className={cn('relative inline-flex items-center justify-center overflow-hidden', className)}>
-      <svg width={size} height={size}>
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
         <circle
           cx={size / 2}
           cy={size / 2}
@@ -61,10 +65,10 @@ const CircularProgress = ({
           y={strokeWidth}
           width={size - strokeWidth * 2}
           height={size - strokeWidth * 2}
-          clipPath="url(#circularClip)"
+          clipPath={`url(#${clipId})`}
         />
         <defs>
-          <clipPath id="circularClip">
+          <clipPath id={clipId}>
             <circle cx={size / 2} cy={size / 2} r={radius - strokeWidth / 2} />
           </clipPath>
         </defs>
@@ -73,9 +77,11 @@ const CircularProgress = ({
       <div className="absolute inset-0 flex items-center justify-center">
         {showPercentage ? <span className="text-sm font-medium text-gray-700">{Math.round(value)}%</span> : children}
       </div>
-      <div className="text-xxs absolute right-0 bottom-0 flex h-4 w-4 items-center justify-center rounded-full bg-[#7750f8] font-bold">
-        {level}
-      </div>
+      {showLevelBadge && (
+        <div className="text-xxs absolute right-0 bottom-0 flex h-4 w-4 items-center justify-center rounded-full bg-[#7750f8] font-bold">
+          {level}
+        </div>
+      )}
     </div>
   )
 }

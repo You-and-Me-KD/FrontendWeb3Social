@@ -41,7 +41,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref,
   ) => {
     const baseStyles =
-      'inline-flex items-center justify-center font-bold transition-colors duration-200 focus:outline-none focus-visible:outline-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed'
+      'inline-flex gap-1 items-center justify-center font-bold transition-colors duration-200 focus:outline-none focus-visible:outline-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed'
 
     const variantStyles: Record<Variant, string> = {
       primary: `bg-button-primary text-white hover:bg-button-primary-hover focus:ring-button-primary-hover`,
@@ -54,9 +54,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     }
 
     const sizeStyles: Record<Size, string> = {
-      small: 'h-[40px] leading-[40px] text-xs',
-      'x-medium': 'h-[48px] leading-[48px] text-sm',
-      medium: 'h-[54px] leading-[54px] text-sm',
+      small: 'h-[40px] leading-[40px] text-xs px-4',
+      'x-medium': 'h-[48px] leading-[48px] text-sm px-4',
+      medium: 'h-[54px] leading-[54px] text-sm px-4',
       large: 'h-[60x] leading-[60px] text-base',
     }
 
@@ -95,7 +95,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             </span>
           )
         )}
-        <span>{children}</span>
+        {children}
         {suffix && !loading && (
           <span className="ml-2" aria-hidden="true">
             {suffix}

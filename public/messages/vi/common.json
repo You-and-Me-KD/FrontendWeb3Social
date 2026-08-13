@@ -56,6 +56,10 @@
     "checkout": {
       "title": "Checkout",
       "description": "Your Order"
+    },
+    "profile": {
+      "title": "Profile",
+      "description": "View and manage your public profile"
     }
   },
   "validation": {
